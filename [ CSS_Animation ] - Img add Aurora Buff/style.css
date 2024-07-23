@@ -1,0 +1,51 @@
+figure {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    mask-image: radial-gradient(ellipse at 80% 0%, #0007 0%, transparent 50%);
+    background-size: 400%, 100%;
+    background-image: repeating-radial-gradient(
+        at -20% 25%,
+        #3338 0%,
+        #3338 7%,
+        transparent 10%,
+        transparent 12%,
+        #3338 16%
+      ),
+      repeating-radial-gradient(
+        at -20% 25%,
+        #60a5fa 10%,
+        #e879f9 15%,
+        #60a5fa 20%,
+        #5eead4 25%,
+        #60a5fa 30%
+      );
+    background-position: 50% 50%, 50% 50%;
+    animation: smoothLight 30s linear infinite;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@keyframes smoothLight {
+  from {
+    background-position: 0% 0%, 0% 0%;
+  }
+
+  to {
+    background-position: 100% 100%, 100% 100%;
+  }
+}

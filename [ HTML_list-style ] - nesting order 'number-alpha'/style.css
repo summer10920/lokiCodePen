@@ -1,0 +1,19 @@
+ol {
+  counter-reset: ol-idx;
+  list-style: none;
+}
+
+ol li:before {
+  content: counters(ol-idx, ".") ". ";
+  counter-increment: ol-idx;
+}
+
+ol ol {
+  margin: 5px 0px 10px -15px;
+  counter-reset: il-idx;
+}
+
+ol ol li:before {
+  counter-increment: il-idx;
+  content: counters(ol-idx, "-") " - " counter(il-idx, lower-alpha) ". ";
+}

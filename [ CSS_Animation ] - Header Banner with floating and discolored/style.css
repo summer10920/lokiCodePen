@@ -1,0 +1,36 @@
+body{
+  margin: 0;  
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 5px #0007;
+  
+    background: linear-gradient(-45deg, #23a6d577, #23d5ab77) center / 400%,
+      url("https://picsum.photos/id/65/1200/800") no-repeat center
+        center/cover;
+    animation: gradient 10s ease infinite alternate;
+  
+    div {
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
+    }
+  }
+  
+  @keyframes gradient {
+    from {
+      background-position: left center, center 40%;
+    }
+  
+    to {
+      background-position: right center, center 20%;
+    }
+  }
+  

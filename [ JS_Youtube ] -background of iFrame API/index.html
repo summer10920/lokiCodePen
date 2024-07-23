@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[ JS_Youtube ] -background of iFrame API</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <section class="container-fluid ratio overflow-hidden d-flex justify-content-center align-items-center bg-secondary"
+    style="--bs-aspect-ratio: 100vh">
+    <div id="YTvideoWall" class="loading"></div>
+    <form autocomplete="off" class="position-relative text-light text-center">
+      <h1 class="display-3 font-monospace">LOGIN</h1>
+      <div class="form-group">
+        <input name="email" class="form-control bg-light bg-opacity-75" placeholder="Account" autocomplete="off"
+          required />
+      </div>
+      <div class="form-group">
+        <input name="password" type="password" class="form-control bg-light bg-opacity-75" placeholder="Password"
+          autocomplete="off" minlength="4" required />
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Login" class="form-control btn btn-primary w-100" />
+      </div>
+    </form>
+  </section>
+</body>
+
+</html>

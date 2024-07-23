@@ -1,0 +1,22 @@
+.form-control {
+  border-radius: 0;
+  max-width: 400px;
+  margin: 40px auto 0;
+  transition: 0.2s;
+}
+
+.ratio #YTvideoWall {
+  pointer-events: none;
+  left: -699px;
+  right: -699px;
+  top: -699px;
+  bottom: -699px;
+  margin: auto;
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+  transition: opacity 2s 1s;
+}
+
+.ratio #YTvideoWall.loading {
+  opacity: 0;
+}
