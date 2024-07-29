@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const actionTooltip = (e) => {
-    navigator.clipboard.writeText(e.target.closest('li').querySelector('div').innerText);
+    navigator.clipboard.writeText(e.target.closest('li').querySelector('label').innerText);
     hideTooltip(e, CopyTo);
     showTooltip(e, Copied);
     setTimeout(() => hideTooltip(e, Copied), 2000);
