@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+/****************************************/
+.btn3d {
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(150deg, #0000 85%, #0003); /*可捨棄:陰影用*/
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 15px;
+    transform-origin: center center 25px;
+    transition: 0.5s;
+    z-index: -1; /*可捨棄:陰影用*/
+  }
+
+  &::before {
+    content: attr(data-be);
+    color: white;
+    background: orange;
+    transform: rotateX(0deg);
+  }
+
+  &::after {
+    content: attr(data-af);
+    color: orange;
+    background: white;
+    transform: rotateX(-90deg);
+  }
+
+  &:hover::before {
+    transform: rotateX(90deg);
+  }
+
+  &:hover::after {
+    transform: rotateX(0deg);
+  }
+}

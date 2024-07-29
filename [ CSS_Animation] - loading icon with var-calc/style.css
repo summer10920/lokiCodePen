@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  background: #333;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50vw;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+/****************************************/
+.win10 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border-radius: 50%;
+
+  span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: lightseagreen;
+    left: 45px;
+    top: 5px;
+    transform-origin: center 45px;
+  }
+}
+
+.loading1 span {
+  animation: run 3s ease-in-out infinite;
+  opacity: calc(var(--i) * 0.2);
+  animation-delay: calc(var(--i) * -0.1s);
+}
+
+.loading2 span {
+  animation: light 1.2s ease-in-out infinite;
+  transform: rotate(calc(30deg * var(--i)));
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes run {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes light {
+  from,
+  to {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
