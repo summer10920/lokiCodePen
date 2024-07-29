@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-reboot.min.css"
+    integrity="sha512-HJaQ4y3YcUGCWikWDn8bFeGTy3Z/3IbxFYQ9G3UAWx16PyTL6Nu5P/BDDV9s0WhK3Sq27Wtbk/6IcwGmGSMXYg=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css"
+    integrity="sha512-i1b/nzkVo97VN5WbEtaPebBG8REvjWeqNclJ6AItj7msdVcaveKrlIIByDpvjk5nwHjXkIqGZscVxOrTb9tsMA=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="script.js"></script>
+</head>
+
+<body class="d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="row row-cols-md-2 w-100">
+      <ul id="colorCard">
+        <li class="d-flex justify-content-between align-items-center">
+          <div id="hexText">HEX</div>
+          <button class="copyBtn">
+            <i class="fa-regular fa-clipboard"></i>
+          </button>
+        </li>
+        <li class="d-flex justify-content-between align-items-center">
+          <div id="rgbText">RGB</div>
+          <button class="copyBtn">
+            <i class="fa-regular fa-clipboard"></i>
+          </button>
+        </li>
+        <li class="d-flex justify-content-between align-items-center">
+          <div id="hslText">HSL</div>
+          <button class="copyBtn">
+            <i class="fa-regular fa-clipboard"></i>
+          </button>
+        </li>
+        <li class="d-flex justify-content-between align-items-center">
+          <div id="hwbText">HWB</div>
+          <button class="copyBtn">
+            <i class="fa-regular fa-clipboard"></i>
+          </button>
+        </li>
+        <li class="d-flex justify-content-between align-items-center">
+          <div>Random Color</div>
+          <button id="RandBtn">
+            <i class="fa-solid fa-question"></i>
+          </button>
+        </li>
+      </ul>
+      <div id="controlPanel">
+        <div class="container-fluid rgb">
+          <div class="row row-cols-2 mb-3">
+            <span class="fa-stack">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fal fa-r fa-stack-1x fa-inverse"></i>
+            </span>
+            <div class="flex-grow-1">
+              <input type="range" min="0" max="255" id="inputRangeR" class="w-100">
+            </div>
+          </div>
+          <div class="row row-cols-2 mb-3">
+            <span class="fa-stack">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fal fa-g fa-stack-1x fa-inverse"></i>
+            </span>
+            <div class="flex-grow-1">
+              <input type="range" min="0" max="255" id="inputRangeG" class="w-100">
+            </div>
+          </div>
+          <div class="row row-cols-2 mb-3">
+            <span class="fa-stack">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fal fa-b fa-stack-1x fa-inverse"></i>
+            </span>
+            <div class="flex-grow-1">
+              <input type="range" min="0" max="255" id="inputRangeB" class="w-100">
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid hsl">
+          <div class="row row-cols-2 mb-3">
+            <span class="fa-stack">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fal fa-h fa-stack-1x fa-inverse"></i>
+            </span>
+            <div class="flex-grow-1">
+              <input type="range" min="0" max="360" id="inputRangeH" class="w-100">
+            </div>
+          </div>
+          <div class="row row-cols-2 mb-3">
+            <span class="fa-stack">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fal fa-s fa-stack-1x fa-inverse"></i>
+            </span>
+            <div class="flex-grow-1">
+              <input type="range" min="0" max="100" id="inputRangeS" class="w-100">
+            </div>
+          </div>
+          <div class="row row-cols-2 mb-3">
+            <span class="fa-stack">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fal fa-l fa-stack-1x fa-inverse"></i>
+            </span>
+            <div class="flex-grow-1">
+              <input type="range" min="0" max="100" id="inputRangeL" class="w-100">
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid other">
+          <div class="row row-cols-2 mb-3">
+            <span class="fa-stack">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fal fa-a fa-stack-1x fa-inverse"></i>
+            </span>
+            <div class="flex-grow-1">
+              <input type="range" min="0" max="100" id="inputRangeA" class="w-100" value="100">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="colorWallpaper"></div>
+  <input type="color" id="inputColor">
+  <div id="CopyTo" class="tooltip"><span>Copy to Clipboard</span>
+    <div class="arrow"></div>
+  </div>
+  <div id="Copied" class="tooltip"><span>Copied!!</span>
+    <div class=" arrow"></div>
+  </div>
+</body>
+
+</html>

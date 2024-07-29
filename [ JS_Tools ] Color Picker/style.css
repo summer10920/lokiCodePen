@@ -1,0 +1,208 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" viewBox="0 0 576 512"><path d="M512 320s-64 92.7-64 128c0 35.4 28.7 64 64 64s64-28.7 64-64-64-128-64-128zm-9.4-102.9L294.9 9.4C288.7 3.1 280.5 0 272.3 0s-16.4 3.1-22.6 9.4l-81.6 81.6L81.9 4.8c-6.3-6.3-16.4-6.3-22.6 0L36.7 27.4c-6.2 6.3-6.2 16.4 0 22.6l86.2 86.2-94.8 94.8c-37.5 37.5-37.5 98.3 0 135.8l117.2 117.2c18.7 18.7 43.3 28.1 67.9 28.1 24.6 0 49.1-9.4 67.9-28.1l221.6-221.6c12.5-12.5 12.5-32.8 0-45.3zm-116.2 71H65.9c1.4-3.8 3.6-8 7.4-11.8l13.2-13.2 81.6-81.6 58.6 58.6c12.5 12.5 32.8 12.5 45.2 0s12.5-32.8 0-45.2l-58.6-58.6 59-59 162.4 162.4-48.3 48.3z"/></svg>'),
+    auto;
+
+  height: 100vh;
+  /*general start*/
+
+  /*general end*/
+
+  &::before {
+    content: "Alpha";
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 20vw;
+    opacity: 0.5;
+    transform: rotate(-15deg);
+    z-index: -1;
+  }
+
+  .container {
+    cursor: default;
+  }
+
+  .colorWallpaper {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    transition: background-color 100ms ease-in-out;
+  }
+
+  #colorCard {
+    min-height: 300px;
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px 5px var(--inverseColor);
+    #hexText {
+      text-transform: uppercase;
+    }
+
+    button {
+      background: none;
+      border-radius: 50%;
+      margin: 0.25rem 0.125rem;
+      display: inline-block;
+      border: 0;
+      color: white;
+      line-height: 1.5rem;
+      width: 3rem;
+      height: 3rem;
+      box-shadow: 0 0 5px 0 var(--inverseColor);
+      text-shadow: 0 0 2px var(--inverseColor);
+
+      > i {
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+div#controlPanel {
+  .hsl {
+    color: white;
+    --fa-inverse: var(--bs-body-color);
+  }
+  .other {
+    color: gray;
+  }
+}
+
+input[type="color"] {
+  position: fixed;
+  appearance: none;
+  border: none;
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  border-radius: 0.5rem;
+  height: 0.5rem;
+  box-shadow: 0 0 5px 0 var(--inverseColor);
+}
+input[type="range"]#inputRangeR::-webkit-slider-runnable-track {
+  background-image: linear-gradient(90deg, black, red);
+}
+input[type="range"]#inputRangeG::-webkit-slider-runnable-track {
+  background-image: linear-gradient(90deg, black, green);
+}
+input[type="range"]#inputRangeB::-webkit-slider-runnable-track {
+  background-image: linear-gradient(90deg, black, blue);
+}
+input[type="range"]#inputRangeH::-webkit-slider-runnable-track {
+  background-image: linear-gradient(
+    90deg,
+    red 0%,
+    #ff0 17%,
+    lime 33%,
+    cyan 50%,
+    blue 66%,
+    #f0f 83%,
+    red 100%
+  );
+}
+input[type="range"]#inputRangeS::-webkit-slider-runnable-track {
+  background-image: linear-gradient(90deg, gray, var(--color));
+}
+input[type="range"]#inputRangeL::-webkit-slider-runnable-track {
+  background-image: linear-gradient(90deg, black, white);
+}
+input[type="range"]#inputRangeA::-webkit-slider-runnable-track {
+  background-image: linear-gradient(90deg, transparent, var(--color)),
+    conic-gradient(
+      black 0 90deg,
+      transparent 90deg 180deg,
+      black 180deg 270deg,
+      transparent 270deg 360deg
+    );
+  background-size: 100%, 10px;
+}
+
+/* slider thumb */
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -8px;
+  background-color: white;
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 10px 2px var(--inverseColor);
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: var(--color);
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  background-color: white;
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: none;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  box-shadow: 0 0 10px 2px var(--inverseColor);
+}
+
+.tooltip {
+  display: none;
+  background: #222;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 90%;
+  cursor: default;
+  width: max-content;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .arrow {
+    position: absolute;
+    background: #222;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+  }
+}
