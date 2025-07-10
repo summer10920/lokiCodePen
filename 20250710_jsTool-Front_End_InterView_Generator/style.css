@@ -1,0 +1,47 @@
+全域樣式 :root {
+  --link-color: #0d6efd;
+}
+
+body {
+  background-color: #f8f9fa;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 1.75rem;
+}
+
+pre[class*="language-"] {
+  font-size: 0.9rem;
+}
+
+/* 卡片樣式 */
+.card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+
+  .card-header {
+    background-image: linear-gradient(35deg, var(--category-bg), #444);
+    color: white;
+    font-weight: 500;
+  }
+
+  .answer-content {
+    padding: 1rem 0;
+    margin: 0.5rem 0;
+  }
+
+  .accordion-button {
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--link-color);
+    transition: transform 0.25s ease-in-out;
+
+    &:not(.collapsed) {
+      transform: scale(1.05);
+      border: 3px solid #0d6efd40;
+      color: var(--link-color);
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
