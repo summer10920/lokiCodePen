@@ -1,9 +1,10 @@
-全域樣式 :root {
+:root {
   --link-color: #0d6efd;
+  --bg-main: #f8f9fa;
 }
 
 body {
-  background-color: #f8f9fa;
+  background-color: var(--bg-main);
   font-family: "Noto Sans TC", sans-serif;
   font-size: 1.75rem;
 }
@@ -12,7 +13,52 @@ pre[class*="language-"] {
   font-size: 0.9rem;
 }
 
-/* 卡片樣式 */
+.btn-rainbow {
+  border: none;
+  background-color: var(--link-color);
+  color: white;
+  font-weight: bold;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  padding: 5px 10px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background: conic-gradient(
+      #f252f2,
+      #e08eac,
+      #5b5dd9,
+      #82bdee,
+      #e85ea8,
+      #bcbc7b,
+      #f252f2
+    );
+    inset: -200%;
+    z-index: -1;
+    animation: rotate 2s linear infinite;
+    transition: all 0.5s ease;
+    opacity: 0;
+  }
+
+  &:hover {
+    background-color: transparent;
+    &::before {
+      opacity: 1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      background: var(--bg-main);
+      z-index: -1;
+      transition: all 0.5s ease;
+    }
+  }
+}
+
 .card {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
@@ -43,5 +89,15 @@ pre[class*="language-"] {
     &:focus {
       box-shadow: none;
     }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }

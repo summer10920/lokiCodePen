@@ -1,0 +1,122 @@
+:root {
+  --bg-main: #333;
+}
+
+body {
+  background-color: var(--bg-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  gap: 200px;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  width: 200px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background: conic-gradient(
+      #f252f2,
+      #e08eac,
+      #5b5dd9,
+      #82bdee,
+      #e85ea8,
+      #bcbc7b,
+      #f252f2
+    );
+  }
+}
+
+.rainbow-circle {
+  height: 200px;
+  border-radius: 50%;
+
+  &::before {
+    inset: 0;
+    mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - 4px),
+      black calc(100% - 4px)
+    );
+    animation: rotate 2s linear infinite, border-radius 5s infinite;
+    transition: all 1s ease;
+  }
+
+  &:hover {
+    border-radius: 0;
+
+    &::before {
+      inset: 10px;
+    }
+  }
+}
+
+.rainbow-square {
+  height: 100px;
+  border-radius: 10px;
+
+  &::before {
+    inset: -100%;
+    z-index: -1;
+    animation: rotate 2s linear infinite;
+    transition: all 0.5s ease;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    background: var(--bg-main);
+    z-index: -1;
+  }
+
+  &:hover::before {
+    inset: 10px -50%;
+  }
+}
+
+@keyframes border-radius {
+  from,
+  to,
+  25%,
+  50%,
+  75% {
+    border-radius: 50%;
+  }
+
+  12.5% {
+    border-radius: 50% 43% 50% 46% / 50% 45% 50% 40%;
+  }
+
+  37.5% {
+    border-radius: 44% 50% 50% 45% / 48% 50% 50% 43%;
+  }
+
+  62.5% {
+    border-radius: 45% 50% 50% 50% / 44% 50% 50% 50%;
+  }
+
+  87.5% {
+    border-radius: 43% 46% 41% 50% / 42% 47% 44% 50%;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

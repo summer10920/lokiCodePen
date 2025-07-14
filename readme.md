@@ -14,3 +14,4 @@
 | [ JS_Game ] Num Bomb!                                          | https://codepen.io/summer10920/full/MYgoObm | 2025/01/04 |
 | [ JS_GAME ] support Bro.                                       | https://codepen.io/summer10920/full/VYZravL | 2025/01/04 |
 | [ JS_Tool ] Front-End Interview Generator                      | https://codepen.io/summer10920/full/pvjzZBP | 2025/07/10 |
+| [ CSS_Animation ] - Rainbow Border Button                      | https://codepen.io/summer10920/full/yyYymea | 2025/07/14 |

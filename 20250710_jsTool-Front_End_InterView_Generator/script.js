@@ -38,20 +38,21 @@ const interviewQuestions = [
         language: "css"
       },
       {
-        question: "如何製作一個響應式圖片？",
+        question: "如何製作一個響應式圖片？舉例 w400 圖片，在不同尺寸上畫面最佳顯示(0 ~ 400 寬比例)",
         answer: "響應式圖片可以通過多種方式實現，包括使用 max-width、srcset 屬性或 picture 元素等方式。",
         code: `<!-- 基本響應式 -->
 <img src="image.jpg" style="max-width: 100%; height: auto;">
 
-<!-- 使用 srcset 針對不同螢幕密度 -->
-<img srcset="image-1x.jpg 1x, image-2x.jpg 2x"
-     src="image-1x.jpg">
+<!-- 使用 srcset -->
+<img srcset="image-200w.jpg 200w, image-300w.jpg 300w, image-400w.jpg 400w"
+     sizes="(max-width: 200px) 200px, (max-width: 300px) 300px, 400px"
+     src="image-400w.jpg">
 
 <!-- 使用 picture 元素 -->
 <picture>
-  <source media="(min-width: 800px)" srcset="large.jpg">
-  <source media="(min-width: 400px)" srcset="medium.jpg">
-  <img src="small.jpg" alt="響應式圖片">
+  <source media="(min-width: 300px)" srcset="image-400w.jpg">
+  <source media="(min-width: 200px)" srcset="image-300w.jpg">
+  <img src="image-200w.jpg">
 </picture>
 
 /* CSS 控制方式 */
