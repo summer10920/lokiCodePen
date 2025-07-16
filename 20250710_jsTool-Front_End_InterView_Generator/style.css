@@ -1,22 +1,29 @@
 :root {
   --link-color: #0d6efd;
-  --bg-main: #f8f9fa;
+  --color-222: #f8f9fa;
+  --text-main: #222;
+  --color-333: #fff;
+}
+
+.dark-theme {
+  --link-color: #90caf9;
+  --color-222: #222;
+  --text-main: #f8f9fa;
+  --color-333: #333;
+  --color-444: #444;
 }
 
 body {
-  background-color: var(--bg-main);
+  background-color: var(--color-222);
+  color: var(--text-main);
   font-family: "Noto Sans TC", sans-serif;
   font-size: 1.75rem;
-}
-
-pre[class*="language-"] {
-  font-size: 0.9rem;
 }
 
 .btn-rainbow {
   border: none;
   background-color: var(--link-color);
-  color: white;
+  color: var(--color-333);
   font-weight: bold;
   overflow: hidden;
   position: relative;
@@ -52,7 +59,7 @@ pre[class*="language-"] {
       content: "";
       position: absolute;
       inset: 4px;
-      background: var(--bg-main);
+      background: var(--color-222);
       z-index: -1;
       transition: all 0.5s ease;
     }
@@ -62,6 +69,7 @@ pre[class*="language-"] {
 .card {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
+  background: var(--color-333);
 
   .card-header {
     background-image: linear-gradient(35deg, var(--category-bg), #444);
@@ -74,20 +82,34 @@ pre[class*="language-"] {
     margin: 0.5rem 0;
   }
 
-  .accordion-button {
-    font-weight: 500;
-    font-size: 1.25rem;
-    color: var(--link-color);
-    transition: transform 0.25s ease-in-out;
+  .accordion {
+    --bs-accordion-border-color: var(--color-333, --bs-border-color);
 
-    &:not(.collapsed) {
-      transform: scale(1.05);
-      border: 3px solid #0d6efd40;
-      color: var(--link-color);
+    .accordion-item {
+      background-color: var(--color-333);
+      color: var(--text-main);
+
+      pre[class*="language-"] {
+        font-size: 0.9rem;
+      }
     }
 
-    &:focus {
-      box-shadow: none;
+    .accordion-button {
+      font-weight: 500;
+      font-size: 1.25rem;
+      color: var(--link-color);
+      background-color: var(--color-444);
+      transition: transform 0.25s ease-in-out;
+
+      &:not(.collapsed) {
+        transform: scale(1.05);
+        border: 3px solid #0d6efd40;
+        color: var(--link-color);
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
     }
   }
 }

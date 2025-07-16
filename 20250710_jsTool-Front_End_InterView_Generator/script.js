@@ -38,7 +38,7 @@ const interviewQuestions = [
         language: "css"
       },
       {
-        question: "如何製作一個響應式圖片？舉例 w400 圖片，在不同尺寸上畫面最佳顯示(0 ~ 400 寬比例)",
+        question: "如何設定響應式圖片？例 w600 圖片在瀏覽器尺寸 w300 上畫面，等比例最佳顯示不超出畫面",
         answer: "響應式圖片可以通過多種方式實現，包括使用 max-width、srcset 屬性或 picture 元素等方式。",
         code: `<!-- 基本響應式 -->
 <img src="image.jpg" style="max-width: 100%; height: auto;">
@@ -274,7 +274,86 @@ $spacing: 20px;
   @extend %button-base;
   background: $primary-color;}`,
         language: "css"
-      }
+      },
+      {
+        question: "RWD 響應式網頁設計的實作原理是什麼？透過哪些 CSS 技術實現？",
+        answer: "RWD 透過 CSS Media Queries、相對單位、Flexbox/Grid 佈局、響應式圖片等技術實現。核心原理是根據螢幕尺寸動態調整佈局和樣式，確保在不同設備上都有良好的使用者體驗。",
+        code: `/* 1. Media Queries - 根據螢幕尺寸調整樣式 */
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+
+/* 2. 相對單位 - 適應不同螢幕 */
+.responsive-text {
+  font-size: 2rem;        /* 相對於根元素 */
+  line-height: 1.5em;     /* 相對於字體大小 */
+  width: 90vw;            /* 視窗寬度的 90% */
+  max-width: 100%;        /* 不超過容器寬度 */
+}
+
+/* 3. Flexbox 響應式佈局 */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.flex-item {
+  flex: 1 1 300px;        /* 基礎寬度 300px，可伸縮 */
+}
+
+@media (max-width: 768px) {
+  .flex-item {
+    flex: 1 1 100%;       /* 小螢幕時佔滿寬度 */
+  }
+}
+
+/* 4. CSS Grid 響應式佈局 */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* 5. 響應式圖片 */
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* 6. 視窗單位 */
+.full-height {
+  height: 100vh;          /* 視窗高度 */
+  width: 100vw;           /* 視窗寬度 */
+}
+
+/* 7. 容器查詢 (Container Queries) */
+.card {
+  container-type: inline-size;
+}
+
+@container (max-width: 400px) {
+  .card-content {
+    font-size: 0.9rem;
+  }
+}`,
+        language: "css"
+      },
     ]
   },
   {
@@ -374,34 +453,46 @@ function debounce(fn, delay) {
         language: "javascript"
       },
       {
-        question: "解釋 JavaScript 中的原型鏈（Prototype Chain）",
-        answer: "原型鏈是 JavaScript 實現繼承的機制，當訪問一個對象的屬性時，如果對象本身沒有這個屬性，就會沿著原型鏈向上查找。",
-        code: `// 建立一個建構函數
-function Animal(name) {
-  this.name = name;
+        question: "為什麼 0.1 + 0.2 !== 0.3？如何解決這個問題？",
+        answer: "由於 JavaScript 使用 IEEE 754 雙精度浮點數標準， 0.1、0.2、0.3 在二進位中都是無限循環小數。將這些二進位數轉換為十進位時會產生捨入誤差，導致 0.1 + 0.2 的結果不等於精確的 0.3。使用 toFixed()、Math.round() 或乘以 10 的冪次來解決。",
+        code: `// 二進位轉十進位的精度問題
+// 0.1 的二進位：0.0001100110011001100110011001100110011001100110011001101...
+// 0.2 的二進位：0.0011001100110011001100110011001100110011001100110011010...
+// 0.3 的二進位：0.01001100110011001100110011001100110011001100110011001101...
+
+// 這些都是無限循環小數，轉換為十進位時會產生捨入誤差
+console.log(0.1 + 0.2);        // 0.30000000000000004 (捨入誤差)
+console.log(0.1 + 0.2 === 0.3); // false
+        
+        // 浮點數精度問題
+console.log(0.1 + 0.2);        // 0.30000000000000004
+console.log(0.1 + 0.2 === 0.3); // false
+
+// 解決方案 1：使用 toFixed()
+const result1 = (0.1 + 0.2).toFixed(1);
+console.log(result1);           // "0.3"
+console.log(parseFloat(result1) === 0.3); // true
+
+// 解決方案 2：使用 Math.round()
+const result2 = Math.round((0.1 + 0.2) * 10) / 10;
+console.log(result2);           // 0.3
+
+// 解決方案 3：轉換為整數運算
+const result3 = (0.1 * 10 + 0.2 * 10) / 10;
+console.log(result3);           // 0.3
+
+// 解決方案 4：使用 Number.EPSILON
+function isEqual(a, b) {
+  return Math.abs(a - b) < Number.EPSILON;
 }
+console.log(isEqual(0.1 + 0.2, 0.3)); // true
 
-// 在原型上添加方法
-Animal.prototype.speak = function() {
-  console.log(this.name + ' makes a sound');
-}
-
-// 繼承
-function Dog(name) {
-  Animal.call(this, name);
-}
-
-// 設置原型鏈
-Dog.prototype = Object.create(Animal.prototype);
-Dog.prototype.constructor = Dog;
-
-// 覆寫方法
-Dog.prototype.speak = function() {
-  console.log(this.name + ' barks');
-}
-
-const dog = new Dog('Rex');
-dog.speak(); // "Rex barks"`,
+// 實際應用：金額計算
+const price = 19.99;
+const quantity = 3;
+const total = price * quantity;
+console.log(total);                    // 59.970000000000006
+console.log(total.toFixed(2));         // "59.97"`,
         language: "javascript"
       },
       {
@@ -480,42 +571,49 @@ console.log('原始依然是:', user);  // 原始資料不變`,
       },
       {
         question: "解釋 JavaScript 中的 this 關鍵字",
-        answer: "this 的值取決於函數的調用方式：一般函數中指向全局對象或 undefined（嚴格模式），方法中指向調用對象，箭頭函數中指向定義時的上下文。",
-        code: `// 一般函數中的 this
-function normalFunction() {
-  console.log(this); // window 或 undefined
-}
-
-// 方法中的 this
-const obj = {
-  name: 'Object',
-  method() {
-    console.log(this.name); // 'Object'
-  }
-};
-
-// 箭頭函數中的 this
-const arrowFunction = () => {
+        answer: "this 代表『目前執行環境下的物件』，它的值取決於函數是如何被呼叫。一般函數中，this 代表全域物件（非嚴格模式下為 window，嚴格模式下為 undefined）；物件方法中，this 代表該物件本身；箭頭函數的 this 取決於外層作用域，不會被呼叫方式改變。",
+        code: `// 1. 全域函數
+function show() {
   console.log(this);
-};
+}
+show(); // 瀏覽器下為 window，嚴格模式下為 undefined
 
-// 常見問題和解決方案
-class Example {
-  constructor() {
-    this.name = 'Example';
-    // 解決方案 1：綁定 this
-    this.method = this.method.bind(this);
-    // 解決方案 2：使用箭頭函數
-    this.arrowMethod = () => {
-      console.log(this.name);
-    };
-  }
-  
-  method() {
+// 2. 物件方法
+const obj = {
+  name: '小明',
+  sayHi() {
     console.log(this.name);
   }
-}`,
-        language: "javascript"
+};
+obj.sayHi(); // '小明'，this 指向 obj
+
+// 3. 建構函數
+function Person(name) {
+  this.name = name;
+}
+const p = new Person('小華');
+console.log(p.name); // '小華'，this 指向新建立的物件
+
+// 4. call/apply/bind 改變 this
+function greet() {
+  console.log(this.name);
+}
+const user = { name: '小美' };
+greet.call(user); // '小美'
+
+// 5. 箭頭函數
+const arrow = () => {
+  console.log(this);
+};
+arrow(); // this 取決於外層作用域（例如 window 或上層函數）
+
+const obj2 = {
+  name: '小王',
+  say: () => {
+    console.log(this.name);
+  }
+};
+obj2.say(); // undefined，因為箭頭函數沒有自己的 this`
       },
       {
         question: "student?.name 中的問號（?.）是什麼意思？為什麼要使用它？",
@@ -545,8 +643,8 @@ data.user?.save?.();  // 安全地調用可能不存在的方法`,
         language: "javascript"
       },
       {
-        question: "在陣列中尋找特定元素時，filter() 和 find() 的效能差異是什麼？",
-        answer: "find() 找到符合條件的元素就會立即返回並停止迴圈，而 filter() 會遍歷整個陣列。當只需要找到一個符合的元素時，使用 find() 效能較佳。",
+        question: "在陣列中提取特定 Value 時，filter() 和 find() 的效能差異是什麼？",
+        answer: "find() 找到符合條件的 Value 就會立即返回並停止迴圈，而 filter() 會遍歷整個陣列。當只需要找到一個符合的 Value 時，使用 find() 效能較佳。",
         code: `const users = [
   { id: 1, name: "小明", age: 20 },
   { id: 2, name: "小華", age: 25 },
@@ -561,8 +659,8 @@ const userFind = users.find(user => user.id === 1);`,
         language: "javascript"
       },
       {
-        question: "驗證陣列中是否存在特定元素的方法，some() 和 find() 有什麼區別？",
-        answer: "some() 只返回 true/false，找到符合條件就停止；find() 返回元素本身，適合需要使用該元素的場景。兩者都是找到後立即返回，但 some() 的記憶體使用較少。",
+        question: "驗證陣列中是否存在特定 Value 的方法，some() 和 find() 有什麼區別？",
+        answer: "some() 只返回 true/false，找到符合條件就停止；find() 返回 Value 本身，適合需要使用該 Value 的場景。兩者都是找到後立即返回，但 some() 的記憶體使用較少。",
         code: `// some(): 只需知道是否存在
 const hasAdmin = users.some(u => u.role === 'admin');
 
@@ -572,7 +670,109 @@ if (admin) {
   console.log(admin.name);
 }`,
         language: "javascript"
+      },
+      {
+        question: "如何使用原生 JavaScript 深層複製（Deep Clone）一個含巢狀結構的純資料物件？",
+        answer: "原生 JavaScript 可以使用 JSON.parse/stringify、遞迴函數或 structuredClone API 來實現深層複製。每種方法都有其適用場景和限制，需要根據資料類型選擇合適的方法。",
+        code: `// 巢狀物件範例
+const originalObj = {
+  name: "小明",
+  age: 25,
+  address: {
+    city: "台北",
+    district: "信義區",
+    details: {
+      street: "松仁路",
+      number: 100
+    }
+  },
+  hobbies: ["讀書", "運動"],
+  friends: [
+    { name: "小華", age: 24 },
+    { name: "小李", age: 26 }
+  ]
+};
+
+// ❌ 淺層複製 - 只複製參考
+const shallowCopy = { ...originalObj };
+shallowCopy.address.city = "高雄";  // 會影響原始物件
+console.log(originalObj.address.city); // "高雄"
+
+// ✅ 方法 1：JSON.parse/stringify
+const deepCopy1 = JSON.parse(JSON.stringify(originalObj));
+deepCopy1.address.city = "台中";
+console.log(originalObj.address.city); // "台北" (原始物件不變)
+
+// 限制：無法處理函數、undefined、Symbol、BigInt、Date
+const objWithFunction = {
+  name: "測試",
+  sayHello: function() { console.log("Hello"); },
+  undefinedValue: undefined,
+  date: new Date()
+};
+const jsonCopy = JSON.parse(JSON.stringify(objWithFunction));
+console.log(jsonCopy.sayHello); // undefined
+console.log(typeof jsonCopy.date); // "string" (變成字串)
+
+// ✅ 方法 2：遞迴深層複製
+function deepClone(obj) {
+  if (obj === null || typeof obj !== 'object') {
+    return obj;
+  }
+  
+  if (obj instanceof Date) {
+    return new Date(obj.getTime());
+  }
+  
+  if (obj instanceof Array) {
+    return obj.map(item => deepClone(item));
+  }
+  
+  if (typeof obj === 'object') {
+    const clonedObj = {};
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        clonedObj[key] = deepClone(obj[key]);
       }
+    }
+    return clonedObj;
+  }
+}
+
+const deepCopy2 = deepClone(originalObj);
+deepCopy2.address.city = "台南";
+console.log(originalObj.address.city); // "台北"
+
+// ✅ 方法 3：structuredClone (ES2022，現代瀏覽器)
+if (typeof structuredClone !== 'undefined') {
+  const deepCopy3 = structuredClone(originalObj);
+  deepCopy3.address.city = "花蓮";
+  console.log(originalObj.address.city); // "台北"
+}
+
+// 測試各種資料類型
+function testDeepClone() {
+  const testObj = {
+    string: "字串",
+    number: 123,
+    boolean: true,
+    null: null,
+    undefined: undefined,
+    date: new Date(),
+    array: [1, 2, { deep: "value" }],
+    object: { nested: { value: "test" } },
+    func: function() { return "test"; }
+  };
+  
+  const cloned = deepClone(testObj);
+  cloned.object.nested.value = "changed";
+  
+  console.log(testObj.object.nested.value); // "test" (原始不變)
+  console.log(cloned.object.nested.value);  // "changed" (複製的改變)
+  console.log(cloned.func()); // "test" (函數正常運作)
+}`,
+        language: "javascript"
+      },
     ]
   },
   {
@@ -598,7 +798,7 @@ const App = () => {
       },
       {
         question: "解釋 MVVM（Model-View-ViewModel）架構模式",
-        answer: "MVVM 是一種架構模式，Model 處理資料邏輯，View 負責畫面呈現，ViewModel 作為中介者處理資料綁定和狀態管理。Vue.js 就是典型的 MVVM 框架。",
+        answer: "MVVM 是一種架構模式，Model 處理資料邏輯，View 負責畫面呈現，ViewModel 作為中介者處理資料綁定和狀態管理。Vue 是典型的 MVVM 框架，Angular 也高度符合 MVVM 架構，但同時融合了更多現代設計模式。",
         code: `// Vue.js MVVM 範例
 export default {
   // Model: 資料
@@ -635,7 +835,7 @@ export default {
     </div>
   \`
 }`,
-        language: "markup"
+        language: "javascript"
       },
       {
         question: "什麼是狀態管理（State Management）？為什麼需要它？",
@@ -882,6 +1082,122 @@ worker.onmessage = event => {
   updateUI(event.data)
 }`,
         language: "javascript"
+      },
+      {
+        question: "什麼是前端路由（Frontend Routing）？它的主要用途和特色是什麼？",
+        answer: "前端路由是一種在單頁應用（SPA）中管理不同頁面或視圖的技術，無需重新載入整個頁面。主要用途包括：實現單頁應用的多頁面體驗、管理應用狀態、改善使用者體驗。特色包含：無需伺服器請求、更快的頁面切換、保持應用狀態、支援瀏覽器前進後退功能。",
+        code: `// SPA 路由的兩種主要方式
+      
+      // 1. Hash Router（Hash 路由）
+      // 使用 URL 的 hash 部分，以 # 開頭
+      // https://example.com/#/home
+      // https://example.com/#/about
+      // https://example.com/#/products
+      
+      // 優點：相容性好，不需要伺服器配置
+      // 缺點：URL 較醜，SEO 較差
+      
+      // 2. Browser Router（瀏覽器路由）
+      // 使用 HTML5 History API，看起來像真實路徑
+      // https://example.com/home
+      // https://example.com/about
+      // https://example.com/products
+      
+      // 優點：URL 美觀，SEO 友好
+      // 缺點：需要伺服器配置（所有路由都指向 index.html）
+
+      // nginx.conf 
+      location /app/ {
+        alias /usr/share/nginx/html/dist/;
+        index index.html index.htm;
+        try_files $uri $uri/ /app/index.html;
+    }
+      
+      // SPA 路由的工作原理
+      // 1. 框架初始化時設定入口路由
+      // 2. 監聽 URL 變化
+      // 3. 解析路徑並對應到相應元件
+      // 4. 動態渲染對應的元件
+      
+      // 路由配置範例
+      const routes = {
+        '/': HomePage,           // 首頁
+        '/about': AboutPage,     // 關於頁面
+        '/products': ProductsPage, // 產品頁面
+        '/contact': ContactPage   // 聯絡頁面
+      }
+      
+      // 路由的特色
+      // 1. 無需重新載入頁面
+      // 2. 保持應用狀態
+      // 3. 支援瀏覽器歷史記錄
+      // 4. 改善使用者體驗
+      // 5. 減少伺服器負載
+      
+      // 實際應用場景
+      // - 電商網站：商品列表 → 商品詳情 → 購物車
+      // - 管理後台：儀表板 → 用戶管理 → 設定
+      // - 部落格：文章列表 → 文章內容 → 評論`,
+        language: "javascript"
+      },
+      {
+        question: "請解釋 Bootstrap 與 Tailwind CSS 的差異性？各自的優缺點為何？",
+        answer: "Bootstrap 是一套預設設計風格的 UI 元件框架，提供大量現成的元件和響應式排版。Tailwind CSS 則是原子化（utility-first）的 CSS 框架，強調用 class 組合快速客製化設計。Bootstrap 上手快、開發速度快，但客製化彈性較低。Tailwind 彈性高、可完全自訂設計，但初學者需適應大量 class 組合，且專案初期較無 UI 樣式。",
+        code: `// Bootstrap 範例：直接使用元件 class
+      <button class="btn btn-primary">按鈕</button>
+      <div class="row">
+        <div class="col-md-6">左側</div>
+        <div class="col-md-6">右側</div>
+      </div>
+      
+      // Tailwind CSS 範例：組合原子 class
+      <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded">按鈕</button>
+      <div class="flex flex-row">
+        <div class="w-1/2">左側</div>
+        <div class="w-1/2">右側</div>
+      </div>
+      
+      // 差異重點
+      // 1. Bootstrap 提供現成 UI 元件與設計風格，Tailwind 提供原子化 class 讓你自由組合
+      // 2. Bootstrap 客製化需覆蓋原有樣式，Tailwind 可直接組合出獨特設計
+      // 3. Bootstrap 適合快速開發、設計統一的專案，Tailwind 適合需要高度自訂的專案
+      // 4. Bootstrap class 較少，Tailwind class 較多但語意明確`
+      },
+      {
+        question: "請舉例說明在前端框架（如 React/Vue/Angular）中，如何實踐 Clean Code？並說明元件設計時應注意哪些原則。",
+        answer: "在框架開發中，Clean Code 實踐包含：1. 元件單一職責（每個元件只做一件事）；2. 適當拆分元件，避免過大元件；3. 明確命名元件、props、事件；4. 避免 props drilling，善用狀態管理或 context；5. 重複邏輯抽離為自訂 Hook/Composables/Service；6. 保持元件可讀性與可測試性。",
+        code: `// 不乾淨的 React 元件（過大、命名不明、重複邏輯）
+      function UserProfile(props) {
+        // 取得用戶資料、處理表單、顯示列表、處理通知...全部寫在一起
+        // ...
+        return (
+          <div>
+            {/* 很多內容 */}
+          </div>
+        );
+      }
+      
+      // 乾淨的 React 元件（單一職責、拆分、命名明確）
+      function UserProfile({ user }) {
+        return (
+          <div>
+            <UserInfo user={user} />
+            <UserPosts userId={user.id} />
+            <UserSettings user={user} />
+          </div>
+        );
+      }
+      
+      // 重複邏輯抽離為 Hook
+      function useUserData(userId) {
+        const [user, setUser] = useState(null);
+        useEffect(() => { /* 取得資料 */ }, [userId]);
+        return user;
+      }
+      
+      // Vue/Angular 也同理，應該拆分元件、明確命名、抽離重複邏輯
+      // Vue: <UserInfo :user="user" />、composables
+      // Angular: <app-user-info [user]="user"></app-user-info">、service`
       }
     ]
   },
@@ -1576,5 +1892,23 @@ function renderQuestions(questions, categoryIndex) {
   }).join('');
 }
 
-// 初始化應用
-document.addEventListener('DOMContentLoaded', initializeApp); 
+document.addEventListener('DOMContentLoaded', function () {
+  initializeApp();
+
+  const themeSwitch = document.getElementById('themeToggleSwitch');
+  if (themeSwitch) {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-theme');
+      themeSwitch.checked = true;
+    }
+    themeSwitch.addEventListener('change', function () {
+      if (themeSwitch.checked) {
+        document.body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.remove('dark-theme');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
+}); 
