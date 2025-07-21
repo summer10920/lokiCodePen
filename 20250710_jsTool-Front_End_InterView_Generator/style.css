@@ -3,6 +3,7 @@
   --color-222: #f8f9fa;
   --text-main: #222;
   --color-333: #fff;
+  --color-444: #efefef;
 }
 
 .dark-theme {
@@ -18,6 +19,11 @@ body {
   color: var(--text-main);
   font-family: "Noto Sans TC", sans-serif;
   font-size: 1.75rem;
+}
+
+.form-check-input:checked {
+  background-color: var(--color-222);
+  border-color: var(--text-main);
 }
 
 .btn-rainbow {
@@ -80,6 +86,7 @@ body {
   .answer-content {
     padding: 1rem 0;
     margin: 0.5rem 0;
+    white-space: pre-line;
   }
 
   .accordion {
@@ -90,11 +97,13 @@ body {
       color: var(--text-main);
 
       pre[class*="language-"] {
+        margin-top: 3rem;
         font-size: 0.9rem;
       }
     }
 
     .accordion-button {
+      cursor: pointer;
       font-weight: 500;
       font-size: 1.25rem;
       color: var(--link-color);
