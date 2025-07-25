@@ -21,7 +21,7 @@ const interviewQuestions = [
         aLang: "markup"
       },
       {
-        question: "什麼是 HTML 空元素（void elements）？請舉例說明並解釋為什麼不需要結尾標籤",
+        question: "什麼是 HTML 空元素（void elements）？請舉例說明並解釋為什麼 img, input, link... 這類型不需要結尾標籤",
         answer: "元素稱為空元素（void elements）或非置換元素（non-replaced elements），它們不需要包內容或任何子元素，只代表一個功能或資源。input 代表輸入欄位，img 代表圖片，hr 代表水平分隔線。在 HTML5 中，這些標籤可以寫成 <input /> 或 <input>，但建議使用 <input> 的簡潔寫法。其他常見的空元素包括 br、meta、link、area、base、col、embed、source、track、wbr 等。",
         aCode: `<!-- 空元素（非置換元素）範例 -->
 <!-- 輸入欄位 -->
@@ -67,7 +67,7 @@ const interviewQuestions = [
         aLang: "markup"
       },
       {
-        question: "HTML 可以做哪些事情提升 SEO？",
+        question: "HTML 可以做哪些事情提升 SEO (Search Engine Optimization)？",
         answer: "HTML SEO 優化包含：使用語意化標籤（header、nav、main...）、正確的標題層級（h1-h6）、meta 標籤優化（title、description、keywords）、圖片 alt 屬性、Open Graph 標籤、連結的 title 屬性、無障礙設計、viewport meta 標籤等。",
 
         aCode: `<!DOCTYPE html>
@@ -156,7 +156,7 @@ const interviewQuestions = [
         aLang: "css"
       },
       {
-        question: "如何設定響應式圖片？例 w600 圖片在瀏覽器尺寸 w300 上畫面，等比例最佳顯示不超出畫面",
+        question: "如何響應式規劃圖片w600 (保持等比例) 在瀏覽器 w300 上不超出螢幕；在瀏覽器 w1900 上維持 w600 畫質不失真。",
         answer: "響應式圖片可以通過多種方式實現，包括使用 max-width、srcset 屬性或 picture 元素等方式。",
         aCode: `<!-- 基本響應式 -->
 <img src="image.jpg" style="max-width: 100%; height: auto;">
@@ -188,8 +188,8 @@ const interviewQuestions = [
         aLang: "markup"
       },
       {
-        question: "z-index 為何無效？",
-        answer: "z-index 必須配合 position 屬性才能生效，且只在同一個堆疊上下文中比較。",
+        question: "請說明 z-index 什麼情況下會無效？",
+        answer: "z-index 只有在元素有設定 position（relative、absolute、fixed、sticky）時才會生效。此外 z-index 只在同個「堆疊上下文（stacking context）」內比較。當有新的 stacking context（例如父層有 position 且 z-index），子元素的 z-index 只會在該 context 內排序，無法超越其他 context",
         aCode: `/* ❌ z-index 無效 */
 .element {
   z-index: 999; /* 無效，因為沒有 position */
@@ -394,7 +394,7 @@ $spacing: 20px;
         aLang: "css"
       },
       {
-        question: "RWD 響應式網頁設計的實作原理是什麼？透過哪些 CSS 技術實現？",
+        question: "RWD (Responsive Web Design) 的實作原理是什麼？主要透過什麼 CSS 技術實現？",
         answer: "RWD 透過 CSS Media Queries、相對單位、Flexbox/Grid 佈局、響應式圖片等技術實現。核心原理是根據螢幕尺寸動態調整佈局和樣式，確保在不同設備上都有良好的使用者體驗。",
         aCode: `/* 1. Media Queries - 根據螢幕尺寸調整樣式 */
 .container {
@@ -761,89 +761,25 @@ data.user?.save?.();  // 安全地調用可能不存在的方法`,
         aLang: "javascript"
       },
       {
-        question: "請說明陣列方法 filter、map、find、some、includes、reduce 的適合用途和返回類型？",
-        answer: "filter() 用於篩選符合條件的元素，返回新陣列；map() 用於轉換每個元素，返回新陣列；find() 用於找到第一個符合條件的元素，返回元素或 undefined；some() 用於檢查是否存在符合條件的元素，返回布林值；includes() 用於檢查是否包含特定值，返回布林值；reduce() 用於累積運算，返回單一值。所有方法都不會修改原始陣列。",
-        aCode: `const users = [
-  { id: 1, name: "小明", age: 20, role: "user" },
-  { id: 2, name: "小華", age: 25, role: "admin" },
-  { id: 3, name: "小李", age: 30, role: "user" },
-  { id: 4, name: "小王", age: 18, role: "user" }
-];
+        question: "找出下列哪些陣列 prototype 在使用時『必須』提供 callback function？",
+        qCode: `filter, map, find, some, every, reduce, forEach, includes, indexOf, join, concat`,
+        qLang: "markdown",
+        answer: `filter, map, find, some, every, reduce, forEach 都必須傳入 function。includes, indexOf, join, concat 則不需要 function。`,
+        aCode: `
+- filter(fn)：必須傳入 function。用來篩選符合條件的元素，回傳新陣列。
+- map(fn)：必須傳入 function。用來轉換每個元素，回傳新陣列。
+- find(fn)：必須傳入 function。找到第一個符合條件的元素，回傳該元素或 undefined。
+- some(fn)：必須傳入 function。檢查是否有任一元素符合條件，回傳布林值。
+- every(fn)：必須傳入 function。檢查是否所有元素都符合條件，回傳布林值。
+- reduce(fn, init)：必須傳入 function。用來累積運算，回傳單一值。
+- forEach(fn)：必須傳入 function。對每個元素執行一次指定函式，無回傳值。
 
-// filter(): 篩選符合條件的元素
-// 用途：篩選資料
-// 返回：新陣列
-const adults = users.filter(user => user.age >= 20);
-console.log(adults); // [{ id: 1, name: "小明", age: 20 }, { id: 2, name: "小華", age: 25 }, { id: 3, name: "小李", age: 30 }]
-
-// map(): 轉換每個元素
-// 用途：資料轉換
-// 返回：新陣列
-const userNames = users.map(user => user.name);
-console.log(userNames); // ["小明", "小華", "小李", "小王"]
-
-// find(): 找到第一個符合條件的元素
-// 用途：查找特定元素
-// 返回：元素或 undefined
-const admin = users.find(user => user.role === 'admin');
-console.log(admin); // { id: 2, name: "小華", age: 25, role: "admin" }
-
-// some(): 檢查是否存在符合條件的元素
-// 用途：存在性檢查
-// 返回：布林值
-const hasAdmin = users.some(user => user.role === 'admin');
-console.log(hasAdmin); // true
-
-// includes(): 檢查是否包含特定值
-// 用途：簡單值的存在性檢查
-// 返回：布林值
-const names = ["小明", "小華", "小李"];
-const hasXiaoMing = names.includes("小明");
-console.log(hasXiaoMing); // true
-
-// reduce(): 累積運算
-// 用途：將陣列歸納為單一值
-// 返回：累積結果
-const numbers = [1, 2, 3, 4, 5];
-const sum = numbers.reduce((acc, curr) => acc + curr, 0);
-console.log(sum); // 15
-
-const maxAge = users.reduce((max, user) => Math.max(max, user.age), 0);
-console.log(maxAge); // 30
-
-// 實際應用場景
-const orders = [
-  { id: 1, amount: 100, status: "已完成" },
-  { id: 2, amount: 200, status: "處理中" },
-  { id: 3, amount: 150, status: "已完成" },
-  { id: 4, amount: 300, status: "已取消" }
-];
-
-// 使用 filter 篩選已完成的訂單
-const completedOrders = orders.filter(order => order.status === "已完成");
-
-// 使用 map 取得所有金額
-const amounts = orders.map(order => order.amount);
-
-// 使用 find 找到特定訂單
-const order2 = orders.find(order => order.id === 2);
-
-// 使用 some 檢查是否有取消的訂單
-const hasCancelled = orders.some(order => order.status === "已取消");
-
-// 使用 includes 檢查狀態類型
-const validStatuses = ["已完成", "處理中", "已取消"];
-const isValidStatus = (status) => validStatuses.includes(status);
-
-// 使用 reduce 計算總金額
-const totalAmount = orders.reduce((sum, order) => sum + order.amount, 0);
-
-// 使用 reduce 分組統計
-const statusCount = orders.reduce((acc, order) => {
-  acc[order.status] = (acc[order.status] || 0) + 1;
-  return acc;
-}, {});`,
-        aLang: "javascript"
+- includes(value)：不需要 function，直接檢查陣列是否包含某個值，回傳布林值。
+- indexOf(value)：不需要 function，回傳指定值的索引，找不到回傳 -1。
+- join(separator)：不需要 function，用來把陣列合併成字串。
+- concat：不需要 function，用來合併陣列。
+      `,
+        aLang: "markdown"
       },
       {
         question: "如何使用原生 JavaScript 深層複製（Deep Clone）一個含巢狀結構的純資料物件？",
@@ -1112,70 +1048,83 @@ export default {
         aLang: "javascript"
       },
       {
-        question: "什麼是響應式程式設計（Reactive Programming）？",
-        answer: "響應式程式設計是一種基於資料流和變化傳遞的程式設計範式。當資料改變時，相依於該資料的程式碼會自動執行，實現資料和 UI 的同步。",
-        aCode: `// RxJS 範例
-const input$ = fromEvent(inputElement, 'input')
-  .pipe(
-    map(e => e.target.value),
-    debounceTime(300),
-    distinctUntilChanged(),
-    switchMap(term => 
-      ajax.getJSON(\`/api/search?q=\${term}\`)
-    )
-  )
-  .subscribe(results => {
-    updateUI(results)
-  })
+        question: "請說明在 Vue 或 React 中的資料流，元件如何相互傳遞資料(父傳子、子傳父)？",
+        answer: `在 Vue 和 React 中，資料流是單向的（one-way data flow）：父元件只能透過 props 把資料往下傳給子元件。子元件如果要影響父元件，**不能直接改變父的資料**，而是要「通知」父元件（React 用 callback function，Vue 用 $emit 事件），由父元件決定是否要改變狀態。
 
-// Vue 3 Composition API
-const searchResults = ref([])
-const searchTerm = ref('')
-
-// 自動追蹤相依性
-watchEffect(async () => {
-  if (searchTerm.value) {
-    searchResults.value = await fetchResults(searchTerm.value)
-  }
-})`,
+這種設計讓元件之間更解耦，資料流向清楚，程式更容易維護。`,
+        aCode: `// React 父傳子（props）與子傳父（callback）
+      function Parent() {
+        const [msg, setMsg] = useState('');
+        return (
+          <div>
+            <Child text="Hello" onReply={setMsg} />
+            <p>子元件回傳：{msg}</p>
+          </div>
+        );
+      }
+      function Child({ text, onReply }) {
+        return (
+          <div>
+            <span>{text}</span>
+            <button onClick={() => onReply('Hi from child!')}>回傳</button>
+          </div>
+        );
+      }
+      
+      // Vue 父傳子（props）與子傳父（emit）
+      <template>
+        <div>
+          <Child text="Hello" @reply="msg = $event" />
+          <p>子元件回傳：{{ msg }}</p>
+        </div>
+      </template>
+      <script setup>
+      import { ref } from 'vue'
+      const msg = ref('')
+      </script>
+      
+      <!-- 子元件 Child.vue -->
+      <template>
+        <span>{{ text }}</span>
+        <button @click="$emit('reply', 'Hi from child!')">回傳</button>
+      </template>
+      <script setup>
+      defineProps(['text'])
+      defineEmits(['reply'])
+      </script>
+      `,
         aLang: "javascript"
       },
       {
-        question: "什麼是 Virtual DOM？它如何提升效能？",
-        answer: "Virtual DOM 是真實 DOM 的 JavaScript 表示，框架通過比較新舊 Virtual DOM 的差異，最小化真實 DOM 操作，從而提升效能。",
-        aCode: `// 簡化的 Virtual DOM 實現
-class VNode {
-  constructor(tag, props, children) {
-    this.tag = tag
-    this.props = props
-    this.children = children
-  }
+        question: "請說明 React/Vue 中 Virtual DOM 的運作？它如何提升效能？",
+        answer: "React 和 Vue 都採用 Virtual DOM 技術。Virtual DOM 是用 JavaScript 物件來模擬真實 DOM 結構。每次狀態改變時，框架會建立新的 Virtual DOM 樹，然後用 diff 演算法比較新舊兩棵 Virtual DOM，找出差異（diff），最後只針對有變化的部分去更新真實 DOM。這樣可以大幅減少不必要的 DOM 操作，提升效能。",
+        aCode: `// React setState 觸發 Virtual DOM 更新
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      {count}
+    </button>
+  );
 }
+// 每次 setCount，React 會：
+// 1. 產生新的 Virtual DOM
+// 2. 與舊的 Virtual DOM 做 diff
+// 3. 只更新有變化的 DOM 節點
 
-function createElement(tag, props, ...children) {
-  return new VNode(tag, props, children)
-}
-
-// 比較算法
-function diff(oldVNode, newVNode) {
-  if (!oldVNode) {
-    return { type: 'CREATE', newVNode }
-  }
-  
-  if (!newVNode) {
-    return { type: 'REMOVE' }
-  }
-  
-  if (oldVNode.tag !== newVNode.tag) {
-    return { type: 'REPLACE', newVNode }
-  }
-  
-  return {
-    type: 'UPDATE',
-    props: diffProps(oldVNode.props, newVNode.props),
-    children: diffChildren(oldVNode.children, newVNode.children)
-  }
-}`,
+// Vue 也是類似流程
+<template>
+  <button @click="count++">{{ count }}</button>
+</template>
+<script setup>
+import { ref } from 'vue'
+const count = ref(0)
+</script>
+// 每次 count++，Vue 會：
+// 1. 產生新的 Virtual DOM
+// 2. diff 新舊 Virtual DOM
+// 3. patch 真實 DOM
+`,
         aLang: "javascript"
       },
       {
@@ -1330,7 +1279,7 @@ worker.onmessage = event => {
         aLang: "javascript"
       },
       {
-        question: "請解釋 Bootstrap 與 Tailwind CSS 的差異性？各自的優缺點為何？",
+        question: "請解釋 Bootstrap 與 Tailwind 的差異性？各自的優缺點為何？",
         answer: "Bootstrap 是一套預設設計風格的 UI 元件框架，提供大量現成的元件和響應式排版。Tailwind CSS 則是原子化（utility-first）的 CSS 框架，強調用 class 組合快速客製化設計。Bootstrap 上手快、開發速度快，但客製化彈性較低。Tailwind 彈性高、可完全自訂設計，但初學者需適應大量 class 組合，且專案初期較無 UI 樣式。",
         aCode: `// Bootstrap 範例：直接使用元件 class
       <button class="btn btn-primary">按鈕</button>
@@ -1353,7 +1302,7 @@ worker.onmessage = event => {
       // 4. Bootstrap class 較少，Tailwind class 較多但語意明確`
       },
       {
-        question: "請舉例說明在前端框架（如 React/Vue/Angular）中，如何實踐 Clean Code？並說明元件設計時應注意哪些原則。",
+        question: "過去經驗上，你平時如何實踐 Clean Code？並說明元件規劃時都注意哪些原則。",
         answer: "在框架開發中，Clean Code 實踐包含：1. 元件單一職責（每個元件只做一件事）；2. 適當拆分元件，避免過大元件；3. 明確命名元件、props、事件；4. 避免 props drilling，善用狀態管理或 context；5. 重複邏輯抽離為自訂 Hook/Composables/Service；6. 保持元件可讀性與可測試性。",
         aCode: `// 不乾淨的 React 元件（過大、命名不明、重複邏輯）
       function UserProfile(props) {
@@ -1726,7 +1675,7 @@ bootstrapApplication(AppComponent);
       },
       {
         question: "什麼是 NgRx？它的核心概念有哪些？",
-        answer: "NgRx 是基於 Redux 模式的 Angular 狀態管理庫，包含 Store（狀態容器）、Actions（動作）、Reducers（狀態更新器）、Effects（副作用處理）、Selectors（狀態選擇器）等核心概念。它提供可預測的狀態管理，適合大型應用程式。",
+        answer: "NgRx 是基於 Redux 模式的 Angular 狀態管理庫，包含 Store（狀態容器）、Actions（動作）、Reducers（狀態更新器）、Effects（副作用處理）、Selectors（狀態選擇器）等核心概念。它提供可預測的狀態管理，適合大型應用專案。",
         aCode: `// 1. Actions - 定義動作
       import { createAction, props } from '@ngrx/store';
       
