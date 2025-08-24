@@ -6,7 +6,8 @@ const interviewQuestions = [
     questions: [
       {
         question: "HTML 中 <section> 與 <div> 有什麼差異？",
-        answer: "section 有語意，適合用來表示網頁中的一個區塊主題；div 無語意，純粹為排版用途。",
+        answer:
+          "section 有語意，適合用來表示網頁中的一個區塊主題；div 無語意，純粹為排版用途。",
         aCode: `<!-- 適合使用 section 的情況 -->
 <section class="news-content">
   <h2>最新消息</h2>
@@ -18,11 +19,13 @@ const interviewQuestions = [
   <div class="left-column">...</div>
   <div class="right-column">...</div>
 </div>`,
-        aLang: "markup"
+        aLang: "markup",
       },
       {
-        question: "什麼是 HTML 空元素（void elements）？請舉例說明並解釋為什麼 img, input, link... 這類型不需要結尾標籤",
-        answer: "元素稱為空元素（void elements）或非置換元素（non-replaced elements），它們不需要包內容或任何子元素，只代表一個功能或資源。input 代表輸入欄位，img 代表圖片，hr 代表水平分隔線。在 HTML5 中，這些標籤可以寫成 <input /> 或 <input>，但建議使用 <input> 的簡潔寫法。其他常見的空元素包括 br、meta、link、area、base、col、embed、source、track、wbr 等。",
+        question:
+          "什麼是 HTML 空元素（void elements）？請舉例說明並解釋為什麼 img, input, link... 這類型不需要結尾標籤",
+        answer:
+          "元素稱為空元素（void elements）或非置換元素（non-replaced elements），它們不需要包內容或任何子元素，只代表一個功能或資源。input 代表輸入欄位，img 代表圖片，hr 代表水平分隔線。在 HTML5 中，這些標籤可以寫成 <input /> 或 <input>，但建議使用 <input> 的簡潔寫法。其他常見的空元素包括 br、meta、link、area、base、col、embed、source、track、wbr 等。",
         aCode: `<!-- 空元素（非置換元素）範例 -->
 <!-- 輸入欄位 -->
 <input type="text" name="username" placeholder="請輸入用戶名">
@@ -64,11 +67,12 @@ const interviewQuestions = [
 <input type="text">
 <img src="image.jpg">
 <hr>`,
-        aLang: "markup"
+        aLang: "markup",
       },
       {
         question: "HTML 可以做哪些事情提升 SEO (Search Engine Optimization)？",
-        answer: "HTML SEO 優化包含：使用語意化標籤（header、nav、main...）、正確的標題層級（h1-h6）、meta 標籤優化（title、description、keywords）、圖片 alt 屬性、Open Graph 標籤、連結的 title 屬性、無障礙設計、viewport meta 標籤等。",
+        answer:
+          "HTML SEO 優化包含：使用語意化標籤（header、nav、main...）、正確的標題層級（h1-h6）、meta 標籤優化（title、description、keywords）、圖片 alt 屬性、Open Graph 標籤、連結的 title 屬性、無障礙設計、viewport meta 標籤等。",
 
         aCode: `<!DOCTYPE html>
 <html lang="zh-Hant">
@@ -136,11 +140,12 @@ const interviewQuestions = [
 <!-- 3. 標題層級：正確的 h1-h6 結構 -->
 <!-- 4. 圖片 alt 和 title：描述圖片內容 -->
 <!-- 5. 連結 title：提供額外資訊 -->`,
-        aLang: "markup"
+        aLang: "markup",
       },
       {
         question: "什麼是 Flexbox？常見屬性有哪些？",
-        answer: "Flexbox 是用來建立一維排版的 CSS 模型，常見屬性包含：水平分布、垂直置中、自動換行等功能。",
+        answer:
+          "Flexbox 是用來建立一維排版的 CSS 模型，常見屬性包含：水平分布、垂直置中、自動換行等功能。",
         aCode: `.container {
   display: flex;
   justify-content: space-between; /* 水平分布 */
@@ -153,11 +158,13 @@ const interviewQuestions = [
   flex-basis: 200px;       /* 基礎寬度 */
   flex-shrink: 0;          /* 禁止縮小 */
 }`,
-        aLang: "css"
+        aLang: "css",
       },
       {
-        question: "如何響應式規劃圖片w600 (保持等比例) 在瀏覽器 w300 上不超出螢幕；在瀏覽器 w1900 上維持 w600 畫質不失真。",
-        answer: "響應式圖片可以通過多種方式實現，包括使用 max-width、srcset 屬性或 picture 元素等方式。",
+        question:
+          "如何響應式規劃圖片w600 (保持等比例) 在瀏覽器 w300 上不超出螢幕；在瀏覽器 w1900 上維持 w600 畫質不失真。",
+        answer:
+          "響應式圖片可以通過多種方式實現，包括使用 max-width、srcset 屬性或 picture 元素等方式。",
         aCode: `<!-- 基本響應式 -->
 <img src="image.jpg" style="max-width: 100%; height: auto;">
 
@@ -185,11 +192,12 @@ const interviewQuestions = [
     object-fit: contain;
   }
 }`,
-        aLang: "markup"
+        aLang: "markup",
       },
       {
         question: "請說明 z-index 什麼情況下會無效？",
-        answer: "z-index 只有在元素有設定 position（relative、absolute、fixed、sticky）時才會生效。此外 z-index 只在同個「堆疊上下文（stacking context）」內比較。當有新的 stacking context（例如父層有 position 且 z-index），子元素的 z-index 只會在該 context 內排序，無法超越其他 context",
+        answer:
+          "z-index 只有在元素有設定 position（relative、absolute、fixed、sticky）時才會生效。此外 z-index 只在同個「堆疊上下文（stacking context）」內比較。當有新的 stacking context（例如父層有 position 且 z-index），子元素的 z-index 只會在該 context 內排序，無法超越其他 context",
         aCode: `/* ❌ z-index 無效 */
 .element {
   z-index: 999; /* 無效，因為沒有 position */
@@ -210,11 +218,12 @@ const interviewQuestions = [
   position: absolute;
   z-index: 999; /* 只在父層內容比較 */
 }`,
-        aLang: "css"
+        aLang: "css",
       },
       {
         question: "CSS Grid 和 Flexbox 的使用場景有何不同？",
-        answer: "Grid 適合二維佈局（行列），Flexbox 適合一維佈局（單行或單列）。Grid 適合整體頁面佈局，Flexbox 適合元件內部排列。",
+        answer:
+          "Grid 適合二維佈局（行列），Flexbox 適合一維佈局（單行或單列）。Grid 適合整體頁面佈局，Flexbox 適合元件內部排列。",
         aCode: `/* Grid 佈局範例 */
 .grid-layout {
   display: grid;
@@ -233,11 +242,12 @@ const interviewQuestions = [
   justify-content: space-between;
   align-items: center;
 }`,
-        aLang: "css"
+        aLang: "css",
       },
       {
         question: "transition 和 animation 兩者有何不同？",
-        answer: "transition 用於狀態變化的漸變效果，animation 用於定義關鍵幀動畫。transition 較簡單但只能定義起始和結束狀態，animation 可以定義多個關鍵幀。",
+        answer:
+          "transition 用於狀態變化的漸變效果，animation 用於定義關鍵幀動畫。transition 較簡單但只能定義起始和結束狀態，animation 可以定義多個關鍵幀。",
         aCode: `/* Transition 範例 */
 .button {
   background: blue;
@@ -258,11 +268,12 @@ const interviewQuestions = [
 .bouncing-element {
   animation: bounce 1s infinite ease-in-out;
 }`,
-        aLang: "css"
+        aLang: "css",
       },
       {
         question: "CSS 權重（Specificity）是如何計算的？",
-        answer: "CSS 權重由四個等級組成：行內樣式(1000) > ID(100) > 類別/屬性/偽類(10) > 元素/偽元素(1)。!important 會覆蓋所有其他樣式。",
+        answer:
+          "CSS 權重由四個等級組成：行內樣式(1000) > ID(100) > 類別/屬性/偽類(10) > 元素/偽元素(1)。!important 會覆蓋所有其他樣式。",
         aCode: `/* 權重: 1 */
 p { color: gray; }
 
@@ -280,11 +291,12 @@ p { color: gray; }
 
 /* 最高權重 */
 p { color: purple !important; }`,
-        aLang: "css"
+        aLang: "css",
       },
       {
         question: "解釋 BEM 命名規範",
-        answer: "BEM 是 Block-Element-Modifier 的縮寫，用於 CSS 類別命名。Block 是獨立實體，Element 是 Block 的一部分，Modifier 是 Block 或 Element 的變體。",
+        answer:
+          "BEM 是 Block-Element-Modifier 的縮寫，用於 CSS 類別命名。Block 是獨立實體，Element 是 Block 的一部分，Modifier 是 Block 或 Element 的變體。",
         aCode: `<!-- BEM 命名範例 -->
 <div class="card">                    <!-- Block -->
   <h2 class="card__title">           <!-- Element -->
@@ -307,11 +319,13 @@ p { color: purple !important; }`,
 .card__content { }
 .card__button { }
 .card__button--disabled { }`,
-        aLang: "markup"
+        aLang: "markup",
       },
       {
-        question: "CSS 中的偽類（Pseudo-classes）和偽元素（Pseudo-elements）有什麼區別？",
-        answer: "偽類用於定義元素的特殊狀態（如 :hover、:first-child），使用單冒號；偽元素用於創建不在文檔樹中的元素（如 ::before、::after），使用雙冒號。",
+        question:
+          "CSS 中的偽類（Pseudo-classes）和偽元素（Pseudo-elements）有什麼區別？",
+        answer:
+          "偽類用於定義元素的特殊狀態（如 :hover、:first-child），使用單冒號；偽元素用於創建不在文檔樹中的元素（如 ::before、::after），使用雙冒號。",
         aCode: `/* 偽類示例 */
 .link:hover {
   color: red;
@@ -351,11 +365,12 @@ p { color: purple !important; }`,
   color: white;
   padding: 5px;
 }`,
-        aLang: "css"
+        aLang: "css",
       },
       {
         question: "CSS 預處理器（如 Sass）的主要功能有哪些？",
-        answer: "CSS 預處理器提供變數、巢狀語法、混入（mixin）、函數、繼承等功能，幫助更好地組織和維護 CSS 程式碼。",
+        answer:
+          "CSS 預處理器提供變數、巢狀語法、混入（mixin）、函數、繼承等功能，幫助更好地組織和維護 CSS 程式碼。",
         aCode: `// SCSS 語法範例
 $primary-color: #007bff;
 $spacing: 20px;
@@ -391,11 +406,13 @@ $spacing: 20px;
 .button-primary {
   @extend %button-base;
   background: $primary-color;}`,
-        aLang: "css"
+        aLang: "css",
       },
       {
-        question: "RWD (Responsive Web Design) 的實作原理是什麼？主要透過什麼 CSS 技術實現？",
-        answer: "RWD 透過 CSS Media Queries、相對單位、Flexbox/Grid 佈局、響應式圖片等技術實現。核心原理是根據螢幕尺寸動態調整佈局和樣式，確保在不同設備上都有良好的使用者體驗。",
+        question:
+          "RWD (Responsive Web Design) 的實作原理是什麼？主要透過什麼 CSS 技術實現？",
+        answer:
+          "RWD 透過 CSS Media Queries、相對單位、Flexbox/Grid 佈局、響應式圖片等技術實現。核心原理是根據螢幕尺寸動態調整佈局和樣式，確保在不同設備上都有良好的使用者體驗。",
         aCode: `/* 1. Media Queries - 根據螢幕尺寸調整樣式 */
 .container {
   width: 1200px;
@@ -470,9 +487,9 @@ $spacing: 20px;
     font-size: 0.9rem;
   }
 }`,
-        aLang: "css"
+        aLang: "css",
       },
-    ]
+    ],
   },
   {
     category: "JavaScript 基礎",
@@ -500,11 +517,12 @@ if (someValue === null) {
 if (someValue == null) {
   // 同時檢查 null 和 undefined
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "解釋 DOM 事件的傳遞機制（Event Propagation）",
-        answer: "DOM 事件傳遞分為三個階段：捕獲（Capturing）、目標（Target）和冒泡（Bubbling）。事件先從根節點向下捕獲到目標元素，然後再向上冒泡。可以使用 stopPropagation() 阻止傳遞，preventDefault() 阻止默認行為。",
+        answer:
+          "DOM 事件傳遞分為三個階段：捕獲（Capturing）、目標（Target）和冒泡（Bubbling）。事件先從根節點向下捕獲到目標元素，然後再向上冒泡。可以使用 stopPropagation() 阻止傳遞，preventDefault() 阻止默認行為。",
         aCode: `// 1. 事件傳遞的三個階段
 document.querySelector('#parent').addEventListener('click', (e) => {
   console.log('捕獲階段');
@@ -534,11 +552,12 @@ overlay.addEventListener('click', (e) => {
     modal.style.display = 'none';
   }
 });`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "什麼是閉包（closure）？",
-        answer: "閉包是一個函式能夠存取其外層作用域變數的特性，常用於建立私有變數和資料封裝。",
+        answer:
+          "閉包是一個函式能夠存取其外層作用域變數的特性，常用於建立私有變數和資料封裝。",
         aCode: `function createCounter() {
   let count = 0;  // 私有變數
   
@@ -568,11 +587,12 @@ function debounce(fn, delay) {
     timer = setTimeout(() => fn.apply(this, args), delay);
   };
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "為什麼 0.1 + 0.2 !== 0.3？如何解決這個問題？",
-        answer: "由於 JavaScript 使用 IEEE 754 雙精度浮點數標準， 0.1、0.2、0.3 在二進位中都是無限循環小數。將這些二進位數轉換為十進位時會產生捨入誤差，導致 0.1 + 0.2 的結果不等於精確的 0.3。使用 toFixed()、Math.round() 或乘以 10 的冪次來解決。",
+        answer:
+          "由於 JavaScript 使用 IEEE 754 雙精度浮點數標準， 0.1、0.2、0.3 在二進位中都是無限循環小數。將這些二進位數轉換為十進位時會產生捨入誤差，導致 0.1 + 0.2 的結果不等於精確的 0.3。使用 toFixed()、Math.round() 或乘以 10 的冪次來解決。",
         aCode: `// 二進位轉十進位的精度問題
 // 0.1 的二進位：0.0001100110011001100110011001100110011001100110011001101...
 // 0.2 的二進位：0.0011001100110011001100110011001100110011001100110011010...
@@ -611,11 +631,12 @@ const quantity = 3;
 const total = price * quantity;
 console.log(total);                    // 59.970000000000006
 console.log(total.toFixed(2));         // "59.97"`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "Promise 和 async/await 的使用場景和差異",
-        answer: "Promise 用於處理非同步操作，提供鏈式調用；async/await 是基於 Promise 的語法糖，讓非同步程式碼更像同步程式碼，更容易理解和維護。",
+        answer:
+          "Promise 用於處理非同步操作，提供鏈式調用；async/await 是基於 Promise 的語法糖，讓非同步程式碼更像同步程式碼，更容易理解和維護。",
         aCode: `// Promise 方式
 function fetchData() {
   return fetch('api/data')
@@ -647,11 +668,13 @@ async function fetchMultipleData() {
     console.error(error);
   }
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
-        question: "為什麼在 JavaScript 中使用解構（Destructuring）來處理物件和陣列？",
-        answer: "解構可以安全地複製資料而不修改原始資料，避免意外的記憶體污染。這在處理不可變性（Immutability）時特別有用，能確保函數的純粹性和可預測性。",
+        question:
+          "為什麼在 JavaScript 中使用解構（Destructuring）來處理物件和陣列？",
+        answer:
+          "解構可以安全地複製資料而不修改原始資料，避免意外的記憶體污染。這在處理不可變性（Immutability）時特別有用，能確保函數的純粹性和可預測性。",
         aCode: `// ❌ 直接修改原始資料
 function updateUserBad(user) {
   user.name = 'New Name';     // 污染原始物件
@@ -685,11 +708,12 @@ const user = {
 console.log('原始:', user);
 console.log('更新後:', updateUserGood(user));
 console.log('原始依然是:', user);  // 原始資料不變`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "解釋 JavaScript 中的 this 關鍵字",
-        answer: "this 代表『目前執行環境下的物件』，它的值取決於函數是如何被呼叫。一般函數中，this 代表全域物件（非嚴格模式下為 window，嚴格模式下為 undefined）；物件方法中，this 代表該物件本身；箭頭函數的 this 取決於外層作用域，不會被呼叫方式改變。",
+        answer:
+          "this 代表『目前執行環境下的物件』，它的值取決於函數是如何被呼叫。一般函數中，this 代表全域物件（非嚴格模式下為 window，嚴格模式下為 undefined）；物件方法中，this 代表該物件本身；箭頭函數的 this 取決於外層作用域，不會被呼叫方式改變。",
         aCode: `// 1. 全域函數
 function show() {
   console.log(this);
@@ -731,11 +755,12 @@ const obj2 = {
     console.log(this.name);
   }
 };
-obj2.say(); // undefined，因為箭頭函數沒有自己的 this`
+obj2.say(); // undefined，因為箭頭函數沒有自己的 this`,
       },
       {
         question: "student?.name 中的問號（?.）是什麼意思？為什麼要使用它？",
-        answer: "這是 Optional Chaining（可選鏈）運算符，用來安全地存取可能為 null 或 undefined 的物件屬性。它可以避免出現 'Cannot read property of null' 的錯誤，讓程式碼更簡潔安全。",
+        answer:
+          "這是 Optional Chaining（可選鏈）運算符，用來安全地存取可能為 null 或 undefined 的物件屬性。它可以避免出現 'Cannot read property of null' 的錯誤，讓程式碼更簡潔安全。",
         aCode: `// ❌ 傳統的防錯方式：醜陋且冗長
 if (student && student.name) {
   console.log(student.name);
@@ -758,10 +783,11 @@ console.log(data.settings?.theme);      // 'dark'
 
 // 搭配函數調用
 data.user?.save?.();  // 安全地調用可能不存在的方法`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
-        question: "找出下列哪些陣列 prototype 在使用時『必須』提供 callback function？",
+        question:
+          "找出下列哪些陣列 prototype 在使用時『必須』提供 callback function？",
         qCode: `filter, map, find, some, every, reduce, forEach, includes, indexOf, join, concat`,
         qLang: "markdown",
         answer: `filter, map, find, some, every, reduce, forEach 都必須傳入 function。includes, indexOf, join, concat 則不需要 function。`,
@@ -779,11 +805,13 @@ data.user?.save?.();  // 安全地調用可能不存在的方法`,
 - join(separator)：不需要 function，用來把陣列合併成字串。
 - concat：不需要 function，用來合併陣列。
       `,
-        aLang: "markdown"
+        aLang: "markdown",
       },
       {
-        question: "如何使用原生 JavaScript 深層複製（Deep Clone）一個含巢狀結構的純資料物件？",
-        answer: "原生 JavaScript 可以使用 JSON.parse/stringify、遞迴函數或 structuredClone API 來實現深層複製。每種方法都有其適用場景和限制，需要根據資料類型選擇合適的方法。",
+        question:
+          "如何使用原生 JavaScript 深層複製（Deep Clone）一個含巢狀結構的純資料物件？",
+        answer:
+          "原生 JavaScript 可以使用 JSON.parse/stringify、遞迴函數或 structuredClone API 來實現深層複製。每種方法都有其適用場景和限制，需要根據資料類型選擇合適的方法。",
         aCode: `// 巢狀物件範例
 const originalObj = {
   name: "小明",
@@ -881,7 +909,7 @@ function testDeepClone() {
   console.log(cloned.object.nested.value);  // "changed" (複製的改變)
   console.log(cloned.func()); // "test" (函數正常運作)
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: `以下程式碼的輸出結果是什麼？為什麼？`,
@@ -894,11 +922,12 @@ item3.num = 30;
 console.log(num, item1.num, item2.num, item3.num);
 `,
         qLang: "javascript",
-        answer: "輸出是 10 20 20 30。num 是原始型別，值不會被物件操作影響。item1 和 item2 指向同一個物件，item2.num = 20 會同時改變 item1.num。item3 則是用展開運算子建立的新物件，item3.num = 30 只會影響 item3，不會影響 item1 或 item2。",
+        answer:
+          "輸出是 10 20 20 30。num 是原始型別，值不會被物件操作影響。item1 和 item2 指向同一個物件，item2.num = 20 會同時改變 item1.num。item3 則是用展開運算子建立的新物件，item3.num = 30 只會影響 item3，不會影響 item1 或 item2。",
         aCode: ``,
-        aLang: "javascript"
-      }
-    ]
+        aLang: "javascript",
+      },
+    ],
   },
   {
     category: "通用框架觀念",
@@ -906,7 +935,8 @@ console.log(num, item1.num, item2.num, item3.num);
     questions: [
       {
         question: "什麼是 SPA（Single Page Application）？它的優缺點是什麼？",
-        answer: "SPA 是只需載入單一頁面的應用程式，透過 JavaScript 動態更新內容。優點包含使用者體驗佳、前後端分離；缺點包含首次載入較慢、SEO 較難處理。",
+        answer:
+          "SPA 是只需載入單一頁面的應用程式，透過 JavaScript 動態更新內容。優點包含使用者體驗佳、前後端分離；缺點包含首次載入較慢、SEO 較難處理。",
         aCode: `// React Router 範例
 const App = () => {
   return (
@@ -919,11 +949,12 @@ const App = () => {
     </Router>
   );
 }`,
-        aLang: "markup"
+        aLang: "markup",
       },
       {
         question: "解釋 MVVM（Model-View-ViewModel）架構模式",
-        answer: "MVVM 是一種架構模式，Model 處理資料邏輯，View 負責畫面呈現，ViewModel 作為中介者處理資料綁定和狀態管理。Vue 是典型的 MVVM 框架，Angular 也高度符合 MVVM 架構，但同時融合了更多現代設計模式。",
+        answer:
+          "MVVM 是一種架構模式，Model 處理資料邏輯，View 負責畫面呈現，ViewModel 作為中介者處理資料綁定和狀態管理。Vue 是典型的 MVVM 框架，Angular 也高度符合 MVVM 架構，但同時融合了更多現代設計模式。",
         aCode: `// Vue.js MVVM 範例
 export default {
   // Model: 資料
@@ -960,11 +991,12 @@ export default {
     </div>
   \`
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "什麼是狀態管理（State Management）？為什麼需要它？",
-        answer: "狀態管理用於處理應用程式的資料狀態，集中管理和共享資料。當應用程式變大時，可以避免 prop drilling 問題，並使資料流更容易追蹤和維護。",
+        answer:
+          "狀態管理用於處理應用程式的資料狀態，集中管理和共享資料。當應用程式變大時，可以避免 prop drilling 問題，並使資料流更容易追蹤和維護。",
         aCode: `// Redux 範例
 // Action
 const addTodo = (text) => ({
@@ -999,11 +1031,12 @@ function TodoList() {
     </div>
   )
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "解釋元件生命週期（Component Lifecycle）的概念",
-        answer: "元件生命週期是框架中元件從建立到銷毀的整個過程，包含掛載、更新和卸載等階段。不同框架有不同的生命週期鉤子。",
+        answer:
+          "元件生命週期是框架中元件從建立到銷毀的整個過程，包含掛載、更新和卸載等階段。不同框架有不同的生命週期鉤子。",
         aCode: `// React 生命週期
 class Example extends React.Component {
   constructor(props) {
@@ -1045,91 +1078,61 @@ export default {
     })
   }
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
-        question: "請說明在 Vue 或 React 中的資料流，元件如何相互傳遞資料(父傳子、子傳父)？",
+        question:
+          "請說明在 Vue 或 React 中的資料流，元件如何相互傳遞資料(父傳子、子傳父)？",
         answer: `在 Vue 和 React 中，資料流是單向的（one-way data flow）：父元件只能透過 props 把資料往下傳給子元件。子元件如果要影響父元件，**不能直接改變父的資料**，而是要「通知」父元件（React 用 callback function，Vue 用 $emit 事件），由父元件決定是否要改變狀態。
 
 這種設計讓元件之間更解耦，資料流向清楚，程式更容易維護。`,
         aCode: `// React 父傳子（props）與子傳父（callback）
-      function Parent() {
-        const [msg, setMsg] = useState('');
-        return (
-          <div>
-            <Child text="Hello" onReply={setMsg} />
-            <p>子元件回傳：{msg}</p>
-          </div>
-        );
-      }
-      function Child({ text, onReply }) {
-        return (
-          <div>
-            <span>{text}</span>
-            <button onClick={() => onReply('Hi from child!')}>回傳</button>
-          </div>
-        );
-      }
-      
-      // Vue 父傳子（props）與子傳父（emit）
-      <template>
-        <div>
-          <Child text="Hello" @reply="msg = $event" />
-          <p>子元件回傳：{{ msg }}</p>
-        </div>
-      </template>
-      <script setup>
-      import { ref } from 'vue'
-      const msg = ref('')
-      </script>
-      
-      <!-- 子元件 Child.vue -->
-      <template>
-        <span>{{ text }}</span>
-        <button @click="$emit('reply', 'Hi from child!')">回傳</button>
-      </template>
-      <script setup>
-      defineProps(['text'])
-      defineEmits(['reply'])
-      </script>
-      `,
-        aLang: "javascript"
+function Parent() {
+  const [msg, setMsg] = useState('');
+  return (
+    <div>
+      <Child text="Hello" onReply={setMsg} />
+      <p>子元件回傳：{msg}</p>
+    </div>
+  );
+}
+
+function Child({ text, onReply }) {
+  return (
+    <div>
+      <span>{text}</span>
+      <button onClick={() => onReply('Hi from child!')}>回傳</button>
+    </div>
+  );
+}
+
+// Vue 父傳子（props）與子傳父（emit）
+<template>
+  <div>
+    <Child text="Hello" @reply="msg = $event" />
+    <p>子元件回傳：{{ msg }}</p>
+  </div>
+</template>
+
+<!-- 子元件 Child.vue -->
+<template>
+  <span>{{ text }}</span>
+  <button @click="$emit('reply', 'Hi from child!')">回傳</button>
+</template>`,
+        aLang: "javascript",
       },
       {
         question: "請說明 React/Vue 中 Virtual DOM 的運作？它如何提升效能？",
-        answer: "React 和 Vue 都採用 Virtual DOM 技術。Virtual DOM 是用 JavaScript 物件來模擬真實 DOM 結構。每次狀態改變時，框架會建立新的 Virtual DOM 樹，然後用 diff 演算法比較新舊兩棵 Virtual DOM，找出差異（diff），最後只針對有變化的部分去更新真實 DOM。這樣可以大幅減少不必要的 DOM 操作，提升效能。",
-        aCode: `// React setState 觸發 Virtual DOM 更新
-function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      {count}
-    </button>
-  );
-}
-// 每次 setCount，React 會：
-// 1. 產生新的 Virtual DOM
-// 2. 與舊的 Virtual DOM 做 diff
-// 3. 只更新有變化的 DOM 節點
-
-// Vue 也是類似流程
-<template>
-  <button @click="count++">{{ count }}</button>
-</template>
-<script setup>
-import { ref } from 'vue'
-const count = ref(0)
-</script>
-// 每次 count++，Vue 會：
-// 1. 產生新的 Virtual DOM
-// 2. diff 新舊 Virtual DOM
-// 3. patch 真實 DOM
-`,
-        aLang: "javascript"
+        answer:
+          "React 和 Vue 都採用 Virtual DOM 技術。Virtual DOM 是用 JavaScript 物件來模擬真實 DOM 結構。每次狀態改變時，框架會建立新的 Virtual DOM 樹，然後用 diff 演算法比較新舊兩棵 Virtual DOM，找出差異（diff），最後只針對有變化的部分去更新真實 DOM。這樣可以大幅減少不必要的 DOM 操作，提升效能。",
+        aCode: '',
+        aLang: "javascript",
       },
       {
-        question: "解釋 SSR（Server-Side Rendering）和 CSR（Client-Side Rendering）的差異",
-        answer: "SSR 在伺服器端生成完整 HTML，有利於 SEO 和首次載入速度；CSR 在客戶端動態生成內容，適合互動性強的應用。現代框架常常結合兩者優點。",
+        question:
+          "解釋 SSR（Server-Side Rendering）和 CSR（Client-Side Rendering）的差異",
+        answer:
+          "SSR 在伺服器端生成完整 HTML，有利於 SEO 和首次載入速度；CSR 在客戶端動態生成內容，適合互動性強的應用。現代框架常常結合兩者優點。",
         aCode: `// Next.js SSR 範例
 // pages/users.js
 export async function getServerSideProps() {
@@ -1175,11 +1178,12 @@ function Users() {
     </div>
   )
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "前端效能優化的常見策略有哪些？",
-        answer: "前端效能優化包含：程式碼分割、懶加載、快取策略、圖片優化、減少 HTTP 請求、使用 CDN、壓縮資源等多個面向。",
+        answer:
+          "前端效能優化包含：程式碼分割、懶加載、快取策略、圖片優化、減少 HTTP 請求、使用 CDN、壓縮資源等多個面向。",
         aCode: `// React 程式碼分割
 const OtherComponent = React.lazy(() => import('./OtherComponent'))
 
@@ -1219,11 +1223,13 @@ worker.postMessage({ data: complexData })
 worker.onmessage = event => {
   updateUI(event.data)
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
-        question: "什麼是前端路由（Frontend Routing）？它的主要用途和特色是什麼？",
-        answer: "前端路由是一種在單頁應用（SPA）中管理不同頁面或視圖的技術，無需重新載入整個頁面。主要用途包括：實現單頁應用的多頁面體驗、管理應用狀態、改善使用者體驗。特色包含：無需伺服器請求、更快的頁面切換、保持應用狀態、支援瀏覽器前進後退功能。",
+        question:
+          "什麼是前端路由（Frontend Routing）？它的主要用途和特色是什麼？",
+        answer:
+          "前端路由是一種在單頁應用（SPA）中管理不同頁面或視圖的技術，無需重新載入整個頁面。主要用途包括：實現單頁應用的多頁面體驗、管理應用狀態、改善使用者體驗。特色包含：無需伺服器請求、更快的頁面切換、保持應用狀態、支援瀏覽器前進後退功能。",
         aCode: `// SPA 路由的兩種主要方式
       
       // 1. Hash Router（Hash 路由）
@@ -1276,11 +1282,12 @@ worker.onmessage = event => {
       // - 電商網站：商品列表 → 商品詳情 → 購物車
       // - 管理後台：儀表板 → 用戶管理 → 設定
       // - 部落格：文章列表 → 文章內容 → 評論`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "請解釋 Bootstrap 與 Tailwind 的差異性？各自的優缺點為何？",
-        answer: "Bootstrap 是一套預設設計風格的 UI 元件框架，提供大量現成的元件和響應式排版。Tailwind CSS 則是原子化（utility-first）的 CSS 框架，強調用 class 組合快速客製化設計。Bootstrap 上手快、開發速度快，但客製化彈性較低。Tailwind 彈性高、可完全自訂設計，但初學者需適應大量 class 組合，且專案初期較無 UI 樣式。",
+        answer:
+          "Bootstrap 是一套預設設計風格的 UI 元件框架，提供大量現成的元件和響應式排版。Tailwind CSS 則是原子化（utility-first）的 CSS 框架，強調用 class 組合快速客製化設計。Bootstrap 上手快、開發速度快，但客製化彈性較低。Tailwind 彈性高、可完全自訂設計，但初學者需適應大量 class 組合，且專案初期較無 UI 樣式。",
         aCode: `// Bootstrap 範例：直接使用元件 class
       <button class="btn btn-primary">按鈕</button>
       <div class="row">
@@ -1299,11 +1306,13 @@ worker.onmessage = event => {
       // 1. Bootstrap 提供現成 UI 元件與設計風格，Tailwind 提供原子化 class 讓你自由組合
       // 2. Bootstrap 客製化需覆蓋原有樣式，Tailwind 可直接組合出獨特設計
       // 3. Bootstrap 適合快速開發、設計統一的專案，Tailwind 適合需要高度自訂的專案
-      // 4. Bootstrap class 較少，Tailwind class 較多但語意明確`
+      // 4. Bootstrap class 較少，Tailwind class 較多但語意明確`,
       },
       {
-        question: "過去經驗上，你平時如何實踐 Clean Code？並說明元件規劃時都注意哪些原則。",
-        answer: "在框架開發中，Clean Code 實踐包含：1. 元件單一職責（每個元件只做一件事）；2. 適當拆分元件，避免過大元件；3. 明確命名元件、props、事件；4. 避免 props drilling，善用狀態管理或 context；5. 重複邏輯抽離為自訂 Hook/Composables/Service；6. 保持元件可讀性與可測試性。",
+        question:
+          "過去經驗上，你平時如何實踐 Clean Code？並說明元件規劃時都注意哪些原則。",
+        answer:
+          "在框架開發中，Clean Code 實踐包含：1. 元件單一職責（每個元件只做一件事）；2. 適當拆分元件，避免過大元件；3. 明確命名元件、props、事件；4. 避免 props drilling，善用狀態管理或 context；5. 重複邏輯抽離為自訂 Hook/Composables/Service；6. 保持元件可讀性與可測試性。",
         aCode: `// 不乾淨的 React 元件（過大、命名不明、重複邏輯）
       function UserProfile(props) {
         // 取得用戶資料、處理表單、顯示列表、處理通知...全部寫在一起
@@ -1335,9 +1344,9 @@ worker.onmessage = event => {
       
       // Vue/Angular 也同理，應該拆分元件、明確命名、抽離重複邏輯
       // Vue: <UserInfo :user="user" />、composables
-      // Angular: <app-user-info [user]="user"></app-user-info">、service`
-      }
-    ]
+      // Angular: <app-user-info [user]="user"></app-user-info">、service`,
+      },
+    ],
   },
   {
     category: "Angular 基礎",
@@ -1345,7 +1354,8 @@ worker.onmessage = event => {
     questions: [
       {
         question: "Angular 中的 ngOnInit 和 constructor 有什麼區別？",
-        answer: "constructor 是 TypeScript 的類別建構子，在依賴注入時使用；ngOnInit 是生命週期鉤子，在所有資料綁定完成後執行初始化邏輯。",
+        answer:
+          "constructor 是 TypeScript 的類別建構子，在依賴注入時使用；ngOnInit 是生命週期鉤子，在所有資料綁定完成後執行初始化邏輯。",
         aCode: `import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -1367,11 +1377,12 @@ export class ExampleComponent implements OnInit {
     );
   }
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "解釋 Angular 中的服務（Service）和依賴注入（DI）",
-        answer: "服務是用於共享資料和邏輯的可重用類別，依賴注入則是 Angular 的核心特性，用於管理元件和服務之間的依賴關係。",
+        answer:
+          "服務是用於共享資料和邏輯的可重用類別，依賴注入則是 Angular 的核心特性，用於管理元件和服務之間的依賴關係。",
         aCode: `// 定義服務
 @Injectable({
   providedIn: 'root'
@@ -1399,11 +1410,12 @@ export class UserListComponent {
       .subscribe(users => this.users = users);
   }
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "什麼是 Angular 中的變更檢測（Change Detection）？",
-        answer: "變更檢測是 Angular 用來同步模型和視圖的機制，當應用程式資料改變時，Angular 會自動更新對應的 DOM。",
+        answer:
+          "變更檢測是 Angular 用來同步模型和視圖的機制，當應用程式資料改變時，Angular 會自動更新對應的 DOM。",
         aCode: `import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
@@ -1427,7 +1439,7 @@ export class PerformanceComponent {
     this.cd.detach();
   }
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "解釋 Angular 中的三種類型指令（Directive）？",
@@ -1462,11 +1474,12 @@ export class HighlightDirective {
     this.el.nativeElement.style.backgroundColor = null;
   }
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "Angular 中的管道（Pipe）是什麼？",
-        answer: "管道用於轉換顯示值，Angular 提供了許多內建管道如 date、currency 等。也可以通過 @Pipe 裝飾器創建自定義管道。",
+        answer:
+          "管道用於轉換顯示值，Angular 提供了許多內建管道如 date、currency 等。也可以通過 @Pipe 裝飾器創建自定義管道。",
         aCode: `// 內建管道使用
 @Component({
   template: \`
@@ -1502,11 +1515,12 @@ export class FilterPipe implements PipeTransform {
     </ul>
   \`
 })`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "Angular 中的路由守衛（Route Guards）有什麼用途？",
-        answer: "路由守衛用於控制路由的訪問權限，包括 CanActivate（訪問權限）、CanDeactivate（離開確認）、Resolve（預加載數據）等。",
+        answer:
+          "路由守衛用於控制路由的訪問權限，包括 CanActivate（訪問權限）、CanDeactivate（離開確認）、Resolve（預加載數據）等。",
         aCode: `// 認證守衛
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
@@ -1564,10 +1578,11 @@ export class UserDetailComponent implements OnInit {
     this.user = this.route.snapshot.data['user'];
   }
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
-        question: "請說明 Angular 生命週期中的 ngOnInit 與 ngAfterContentInit 有什麼差異？適合在什麼時機做處理",
+        question:
+          "請說明 Angular 生命週期中的 ngOnInit 與 ngAfterContentInit 有什麼差異？適合在什麼時機做處理",
         answer: `ngOnInit 是元件本身初始化時呼叫，適合做元件自己的資料初始化、API 請求等。  
       ngAfterContentInit 則是在內容投影（ng-content）完成後呼叫，這時才能安全地取得或操作投影進來的內容（如 @ContentChild、slot、富文本編輯器等）。如果需要初始化或操作 ng-content 投影進來的 DOM、元件或第三方套件，必須等到 ngAfterContentInit 之後再執行。否則在 ngOnInit 階段這些內容還沒準備好，會導致初始化失敗或取不到參考。
       
@@ -1603,11 +1618,12 @@ export class UserDetailComponent implements OnInit {
       })
       export class ParentComponent {}
       `,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "Angular 中的 NgModule 與 Standalone Components 有什麼差異？",
-        answer: "NgModule 是 Angular 傳統的模組化方式，需要明確定義 declarations、imports、exports 等。Standalone Components 是 Angular 14+ 推出的新方式，元件可以獨立存在，不需要 NgModule 包裝，更簡潔且符合現代前端開發趨勢。",
+        answer:
+          "NgModule 是 Angular 傳統的模組化方式，需要明確定義 declarations、imports、exports 等。Standalone Components 是 Angular 14+ 推出的新方式，元件可以獨立存在，不需要 NgModule 包裝，更簡潔且符合現代前端開發趨勢。",
         aCode: `// 傳統 NgModule 方式
 // --------------------------------
 // user-list.component.ts
@@ -1671,11 +1687,12 @@ export class AppComponent {}
 // main.ts
 bootstrapApplication(AppComponent);
 `,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "什麼是 NgRx？它的核心概念有哪些？",
-        answer: "NgRx 是基於 Redux 模式的 Angular 狀態管理庫，包含 Store（狀態容器）、Actions（動作）、Reducers（狀態更新器）、Effects（副作用處理）、Selectors（狀態選擇器）等核心概念。它提供可預測的狀態管理，適合大型應用專案。",
+        answer:
+          "NgRx 是基於 Redux 模式的 Angular 狀態管理庫，包含 Store（狀態容器）、Actions（動作）、Reducers（狀態更新器）、Effects（副作用處理）、Selectors（狀態選擇器）等核心概念。它提供可預測的狀態管理，適合大型應用專案。",
         aCode: `// 1. Actions - 定義動作
       import { createAction, props } from '@ngrx/store';
       
@@ -1816,11 +1833,12 @@ bootstrapApplication(AppComponent);
           items: state.items.filter(item => item.id !== itemId)
         }))
       );`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "什麼是 NgRx Facade 模式？它的作用是什麼？",
-        answer: "NgRx Facade 是一種設計模式，用來隱藏 NgRx 的複雜性，為元件提供簡潔的 API。Facade 封裝了 Actions、Selectors 和 Effects，讓元件不需要直接與 Store 互動，提高程式碼的可維護性和可測試性。",
+        answer:
+          "NgRx Facade 是一種設計模式，用來隱藏 NgRx 的複雜性，為元件提供簡潔的 API。Facade 封裝了 Actions、Selectors 和 Effects，讓元件不需要直接與 Store 互動，提高程式碼的可維護性和可測試性。",
         aCode: `// 傳統方式 - 元件直接與 Store 互動
       @Component({
         selector: 'app-user-list',
@@ -1987,11 +2005,12 @@ bootstrapApplication(AppComponent);
           this.cartFacade.clearCart();
         }
       }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "Angular 從版本 9 到 20 任意列舉一些編寫工具上的重大改變？",
-        answer: "(1) Angular 12 移除 View Engine，全面改用 Ivy 編譯器；(2) Angular 14 推出 Standalone Components，不再強制需要 NgModule；(3) Angular 16 引入 Signals 用於狀態管理；(4) Angular 17 推出新的控制流語法 @if/@for，不再需要 CommonModule；(5) Angular 20 引入 Defer Block 延遲載入功能。",
+        answer:
+          "(1) Angular 12 移除 View Engine，全面改用 Ivy 編譯器；(2) Angular 14 推出 Standalone Components，不再強制需要 NgModule；(3) Angular 16 引入 Signals 用於狀態管理；(4) Angular 17 推出新的控制流語法 @if/@for，不再需要 CommonModule；(5) Angular 20 引入 Defer Block 延遲載入功能。",
         aCode: `// Angular 14: Standalone Components
 @Component({
   standalone: true,
@@ -2016,11 +2035,13 @@ doubled = computed(() => this.count() * 2);
 } @placeholder {
   <loading-spinner/>
 }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
-        question: "RxJS 中的 Subject、BehaviorSubject、ReplaySubject 有什麼差異？",
-        answer: "Subject 是基本的多播 Observable，可以同時向多個訂閱者發送資料。BehaviorSubject 會記住最後一個值並發送給新訂閱者，適合狀態管理。ReplaySubject 會記住指定數量的值，適合需要快取歷史資料的場景。",
+        question:
+          "RxJS 中的 Subject、BehaviorSubject、ReplaySubject 有什麼差異？",
+        answer:
+          "Subject 是基本的多播 Observable，可以同時向多個訂閱者發送資料。BehaviorSubject 會記住最後一個值並發送給新訂閱者，適合狀態管理。ReplaySubject 會記住指定數量的值，適合需要快取歷史資料的場景。",
         aCode: `// 基本 Subject - 多播 Observable
       const subject = new Subject<string>();
       subject.subscribe(value => console.log('Observer A:', value));
@@ -2084,7 +2105,7 @@ doubled = computed(() => this.count() * 2);
           this.clickSubject.next(event);
         }
       }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "RxJS 中的 map、filter、switchMap、mergeMap 有什麼差異？",
@@ -2113,11 +2134,12 @@ of('A', 'B').pipe(
 ).subscribe(console.log);
 
 // 假設 fakeSearch, fakeApi 都回傳 Observable`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "RxJS 中的 combineLatest 是什麼？它的使用場景？",
-        answer: "combineLatest 會等待所有 Observable 都發出至少一個值後，才開始發出組合後的值。每當任何一個 Observable 發出新值時，都會重新組合所有 Observable 的最新值。適用於需要同時監聽多個資料來源的場景，但要注意初始值問題和記憶體洩漏。",
+        answer:
+          "combineLatest 會等待所有 Observable 都發出至少一個值後，才開始發出組合後的值。每當任何一個 Observable 發出新值時，都會重新組合所有 Observable 的最新值。適用於需要同時監聽多個資料來源的場景，但要注意初始值問題和記憶體洩漏。",
         aCode: `// 基本用法 - 組合兩個 Observable
       const user$ = new BehaviorSubject<User>({ id: 1, name: '小明' });
       const settings$ = new BehaviorSubject<Settings>({ theme: 'dark', language: 'zh' });
@@ -2299,7 +2321,7 @@ of('A', 'B').pipe(
           })
         );
       }`,
-        aLang: "javascript"
+        aLang: "javascript",
       },
       {
         question: "RxJS 中的 takeUntil 是什麼？它和 unsubscribe 有什麼不同？",
@@ -2354,15 +2376,15 @@ of('A', 'B').pipe(
       - takeUntil 適合多個訂閱共用同一個銷毀訊號，程式碼更簡潔，容易維護。
       - unsubscribe 需手動管理每一個 Subscription，若遺漏會造成記憶體洩漏。
       - 在 Angular、React 等框架中，建議用 takeUntil 結合 Subject 處理元件銷毀時的自動取消訂閱。
-      */`
-      }
-    ]
-  }
+      */`,
+      },
+    ],
+  },
 ];
 
 // 處理 HTML 字元轉義
 function escapeHtml(text) {
-  const div = document.createElement('div');
+  const div = document.createElement("div");
   div.textContent = text;
   return div.innerHTML;
 }
@@ -2375,13 +2397,13 @@ function getRandomQuestions(questions, count) {
 
 // 渲染隨機題目卡片
 function renderRandomQuestionCards() {
-  const container = document.getElementById('questionCards');
-  container.innerHTML = ''; // 清空現有內容
+  const container = document.getElementById("questionCards");
+  container.innerHTML = ""; // 清空現有內容
 
   interviewQuestions.forEach((category, index) => {
     const randomQuestions = getRandomQuestions(category.questions, 5);
-    const categoryCard = document.createElement('div');
-    categoryCard.className = 'col';
+    const categoryCard = document.createElement("div");
+    categoryCard.className = "col";
     categoryCard.innerHTML = `
       <div class="card h-100">
         <div class="card-header" style="--category-bg: ${category.bgColor}">
@@ -2398,7 +2420,7 @@ function renderRandomQuestionCards() {
   });
 
   // 重新初始化 Prism
-  if (typeof Prism !== 'undefined') {
+  if (typeof Prism !== "undefined") {
     Prism.highlightAll();
   }
 }
@@ -2408,19 +2430,21 @@ function initializeApp() {
   renderQuestionCards();
 
   // 添加隨機抽題按鈕事件監聽
-  const randomizeBtn = document.getElementById('randomizeBtn');
-  randomizeBtn.addEventListener('click', renderRandomQuestionCards);
+  const randomizeBtn = document.getElementById("randomizeBtn");
+  randomizeBtn.addEventListener("click", renderRandomQuestionCards);
 }
 
 // 渲染問題卡片
 function renderQuestionCards() {
-  const container = document.getElementById('questionCards');
+  const container = document.getElementById("questionCards");
   interviewQuestions.forEach((category, index) => {
-    const categoryCard = document.createElement('div');
-    categoryCard.className = 'col';
+    const categoryCard = document.createElement("div");
+    categoryCard.className = "col";
     categoryCard.innerHTML = `
             <div class="card h-100">
-                <div class="card-header" style="--category-bg: ${category.bgColor}">
+                <div class="card-header" style="--category-bg: ${
+                  category.bgColor
+                }">
                     ${escapeHtml(category.category)}
                 </div>
                 <div class="card-body">
@@ -2433,54 +2457,70 @@ function renderQuestionCards() {
     container.appendChild(categoryCard);
   });
   // 重新初始化 Prism
-  if (typeof Prism !== 'undefined') {
+  if (typeof Prism !== "undefined") {
     Prism.highlightAll();
   }
 }
 
 // 渲染問題列表
 function renderQuestions(questions, categoryIndex) {
-  return questions.map((q, index) => {
-    const questionId = `question-${categoryIndex}-${index}`;
-    const headingId = `heading-${questionId}`;
-    const collapseId = `collapse-${questionId}`;
+  return questions
+    .map((q, index) => {
+      const questionId = `question-${categoryIndex}-${index}`;
+      const headingId = `heading-${questionId}`;
+      const collapseId = `collapse-${questionId}`;
 
-    return `
+      return `
             <div class="accordion-item">
                 <h2 class="accordion-header accordion-button collapsed" id="${headingId}" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#${collapseId}">
                   <div>
                   <span>${escapeHtml(q.question)}</span>
-                  ${q.qCode ? `<pre><code class="language-${q.qLang || 'javascript'}">${escapeHtml(q.qCode)}</code></pre>` : ''}
+                  ${
+                    q.qCode
+                      ? `<pre><code class="language-${
+                          q.qLang || "javascript"
+                        }">${escapeHtml(q.qCode)}</code></pre>`
+                      : ""
+                  }
                   </div>
                 </h2>
                 <div id="${collapseId}" class="accordion-collapse collapse" data-bs-parent="#accordion${categoryIndex}">
                     <div class="accordion-body">
-                        <span class="answer-content">${escapeHtml(q.answer)}</span>
-                        ${q.aCode ? `<pre><code class="language-${q.aLang || 'javascript'}">${escapeHtml(q.aCode)}</code></pre>` : ''}
+                        <span class="answer-content">${escapeHtml(
+                          q.answer
+                        )}</span>
+                        ${
+                          q.aCode
+                            ? `<pre><code class="language-${
+                                q.aLang || "javascript"
+                              }">${escapeHtml(q.aCode)}</code></pre>`
+                            : ""
+                        }
                     </div>
                 </div>
             </div>
         `;
-  }).join('');
+    })
+    .join("");
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   initializeApp();
 
-  const themeSwitch = document.getElementById('themeToggleSwitch');
+  const themeSwitch = document.getElementById("themeToggleSwitch");
   if (themeSwitch) {
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark-theme');
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-theme");
       themeSwitch.checked = true;
     }
-    themeSwitch.addEventListener('change', function () {
+    themeSwitch.addEventListener("change", function () {
       if (themeSwitch.checked) {
-        document.body.classList.add('dark-theme');
-        localStorage.setItem('theme', 'dark');
+        document.body.classList.add("dark-theme");
+        localStorage.setItem("theme", "dark");
       } else {
-        document.body.classList.remove('dark-theme');
-        localStorage.setItem('theme', 'light');
+        document.body.classList.remove("dark-theme");
+        localStorage.setItem("theme", "light");
       }
     });
   }
-}); 
+});
