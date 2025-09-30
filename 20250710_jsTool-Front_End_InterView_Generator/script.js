@@ -2473,7 +2473,7 @@ function renderQuestions(questions, categoryIndex) {
       return `
             <div class="accordion-item">
                 <h2 class="accordion-header accordion-button collapsed" id="${headingId}" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#${collapseId}">
-                  <div>
+                  <div class="overflow-hidden">
                   <span>${escapeHtml(q.question)}</span>
                   ${
                     q.qCode
