@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Contact Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact Form">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" rel="stylesheet">
+  <link href="b9.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <h1>Task X - Contact Form with conditional form elements</h1>
+
+  <form enctype="multipart/form-data" name="field" class="form" method="post">
+    <section class="form__section">
+      <h2 class="form__heading">E mail form</h2>
+
+      <fieldset class="form__fieldset">
+        <legend class="form__legend">User data</legend>
+        <div class="form__fieldwrap form__fieldwrap--input">
+          <label for="field_firstname" class="form__label">First name</label>
+          <input class="form__input" id="field_firstname" type="text" name="firstname">
+        </div>
+        <div class="form__fieldwrap form__fieldwrap--input">
+          <label for="field_lastname" class="form__label">Last name</label>
+          <input required class="form__input" id="field_lastname" type="text" name="lastname">
+        </div>
+        <div class="form__fieldwrap form__fieldwrap--input">
+          <label for="field_telephone" class="form__label">Telephone</label>
+          <input pattern="^(\+\d{1,4}|0+\d{1,5}|\(\d{1,5})[\d\s\/\(\)-]*\d+$" class="form__input" id="field_telephone"
+            type="tel" name="telephone">
+        </div>
+        <div class="form__fieldwrap form__fieldwrap--input">
+          <label for="field_e_mail" class="form__label">E mail</label>
+          <input required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" class="form__input"
+            id="field_e_mail" type="email" name="e_mail">
+        </div>
+      </fieldset>
+
+      <input class="form__input " id="field_general" type="radio" name="subject" value="General">
+      <input required class="form__input" id="field_support_request" type="radio" name="subject"
+        value="Support request">
+
+      <fieldset class="form__fieldset">
+        <legend class="form__legend">Subject</legend>
+        <div class="form__fieldwrap form__fieldwrap--radio">
+          <label for="field_general" class="form__label field_general">General</label>
+        </div>
+        <div class="form__fieldwrap form__fieldwrap--radio">
+          <label for="field_support_request" class="form__label field_support_request">Support request</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__fieldset field_general">
+        <legend class="form__legend">Additional informations according to subject <strong>general</strong></legend>
+        <div class="form__fieldwrap form__fieldwrap--input">
+          <label for="field_website" class="form__label">Website URL</label>
+          <input required class="form__input" id="field_website" type="url" name="lastname">
+        </div>
+      </fieldset>
+
+      <fieldset class="form__fieldset field_support_request">
+        <legend class="form__legend">Additional informations according to subject <strong>support request</strong>
+        </legend>
+        <div class="form__fieldwrap form__fieldwrap--multiselect">
+          <label for="field_support_subject" class="form__label">Support subjects</label>
+          <select class="form__input form__input--multiselect" id="field_support_subject" multiple="multiple"
+            name="support_subject">
+            <option value="nocoffee">I ran out of coffee</option>
+            <option value="toomuchcoffee">I had too much coffee</option>
+            <option value="brokencoffeemachine">Coffee machine is broken</option>
+            <option value="cofferedbull">I poured Red Bull in my coffe this morning. I can see sounds.</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__fieldset">
+        <legend class="form__legend visuallyhidden">Message</legend>
+        <div class="form__fieldwrap form__fieldwrap--textarea">
+          <label for="field_message" class="form__label">Text</label>
+          <textarea required rows="5" cols="20" class="form__input form__input--textarea" id="field_message"
+            name="text"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__fieldset">
+        <legend class="form__legend">Send</legend>
+        <div class="form__fieldwrap form__fieldwrap--submit">
+          <button class="button button--submit" type="submit" name="submit">Send</button>
+        </div>
+      </fieldset>
+    </section>
+    <footer class="info">
+      <h5>B9: HTML/CSS – Contact Form (Normal)</h5>
+      <p>
+        An HTML and CSS implementation of a not yet finished form are given.<br>
+        Modify the CSS and HTML so that the form looks as depicted in the screenshot in the media files. It’s responsive<br>
+        behaviour should follow the screencast in the media files.<br>
+        The use of JavaScript is NOT allowed.<br>
+      </p>
+    </footer>
+  </form>
+</body>
+
+</html>

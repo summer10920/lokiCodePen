@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
+      background: #eee;
+      text-align: center;
+    }
+
+    footer.info {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      max-width: 300px;
+      z-index: 99999;
+      background: lightskyblue;
+      opacity: 0.3;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    footer.info:hover {
+      opacity: 1;
+    }
+
+    #demo {
+      width: 400px;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .color {
+      width: 800px;
+      height: 800px;
+      background:
+        radial-gradient(at top left, rgb(255, 30, 30), transparent 60%),
+        radial-gradient(at top right, rgb(73, 255, 1), transparent 60%),
+        radial-gradient(at bottom left, rgb(0, 183, 255), transparent 60%),
+        radial-gradient(at bottom right, rgb(183, 0, 255), transparent 60%);
+      animation: run 10s infinite;
+    }
+
+    @keyframes run {
+      0% {
+        transform: translate(0%, 0%);
+      }
+
+      25% {
+        transform: translate(-50%, 0%);
+      }
+
+      50% {
+        transform: translate(-50%, -50%);
+      }
+
+      75% {
+        transform: translate(0%, -50%);
+      }
+
+      100% {
+        transform: translate(0%, 0%);
+      }
+
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="demo">
+    <div class="color"></div>
+  </div>
+
+  <footer class="info">
+    <h5>B13: Gradient animation (Easy)</h5>
+    <p>By using HTML and CSS, create a gradient shift animation on the page. The gradient may move into any direction.
+    </p>
+  </footer>
+</body>
+
+</html>

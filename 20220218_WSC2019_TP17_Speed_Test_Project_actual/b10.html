@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
+      background: #eee;
+      text-align: center;
+    }
+
+    footer.info {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      max-width: 300px;
+      z-index: 99999;
+      background: lightskyblue;
+      opacity: 0.3;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    footer.info:hover {
+      opacity: 1;
+    }
+
+    #demo {
+      width: 400px;
+      height: 400px;
+      background: lightcyan;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+    }
+
+    #demo input[type="range"] {
+      width: 35%;
+      margin-right: 10%;
+    }
+
+    #demo span {
+      width: 25%;
+      display: inline-block;
+      text-align: left;
+      margin-left: 10%;
+    }
+
+    h4 {
+      margin: 0;
+    }
+
+    hr {
+      width: 75%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="demo" style="box-shadow:0 0 0 0 #000;">
+    <h4 id="brTxt">border-radius:0 0 0 0;</h4>
+    <div><span>All </span><input type="range" class="brall" min="0" max="50" value="0"></div>
+    <div><span>Left-Top </span><input type="range" class="br" min="0" max="50" value="0"></div>
+    <div><span>Right-Top </span><input type="range" class="br" min="0" max="50" value="0"></div>
+    <div><span>Right-Bottom </span><input type="range" class="br" min="0" max="50" value="0"></div>
+    <div><span>Left-Bottom </span><input type="range" class="br" min="0" max="50" value="0"></div>
+    <hr>
+    <h4 id="bsTxt">box-shadow:0 0 0 0 #000</h4>
+    <div><span>X-offset </span><input type="range" class="bs" min="0" max="100" value="0"></div>
+    <div><span>Y-offset </span><input type="range" class="bs" min="0" max="100" value="0"></div>
+    <div><span>Blur </span><input type="range" class="bs" min="0" max="20" value="0"></div>
+    <div><span>Spread </span><input type="range" class="bs" min="0" max="20" value="0"></div>
+    <div><span>Color-R </span><input type="range" class="bs" min="0" max="255" value="0"></div>
+    <div><span>Color-G </span><input type="range" class="bs" min="0" max="255" value="0"></div>
+    <div><span>Color-B </span><input type="range" class="bs" min="0" max="255" value="0"></div>
+    <div><span>Color-A </span><input type="range" class="bs" min="0" max="100" value="255"></div>
+  </div>
+
+  <footer class="info">
+    <h5>B10: Border Radius & Box Shadow (Easy)</h5>
+    <p>Create a page that contains a 400px rectangle in the middle.<br>
+      Inside the rectangle there is a settings panel with inputs, where you can setup the rectangle's Border radius, and
+      box shadow properties. The rectangle’s css updates on input changes.</p>
+  </footer>
+  <script>
+    let brAll = document.getElementsByClassName("brall")[0];
+    let brList = document.getElementsByClassName("br");
+
+    brAll.addEventListener("input", () => { getval("all") });
+
+    let brAry = new Array();
+    for (const item of brList) {
+      item.addEventListener("input", () => { getval("self") });
+    }
+
+    let bsList = document.getElementsByClassName("bs");
+    let bsAry = new Array();
+    for (const item of bsList) {
+      item.addEventListener("input", () => { getval("box") });
+    }
+
+    function getval(which) {
+      switch (which) {
+        case "all":
+          document.getElementById("demo").style.borderRadius = `${brAll.value}% ${brAll.value}% ${brAll.value}% ${brAll.value}%`;
+          document.getElementById("brTxt").textContent = `border-radius:${document.getElementById("demo").style.borderRadius}`;
+          for (const item of brList) item.value = brAll.value;
+          break;
+        case "self":
+          for (const item of brList) {
+            brAry.push(item.value);
+          }
+          brAry = brAry.reverse();
+          document.getElementById("demo").style.borderRadius = `${brAry.pop()}% ${brAry.pop()}% ${brAry.pop()}% ${brAry.pop()}%`;
+          document.getElementById("brTxt").textContent = `border-radius:${document.getElementById("demo").style.borderRadius}`;
+          break;
+        case "box":
+          for (const item of bsList) {
+            bsAry.push(item.value);
+          }
+          bsAry = bsAry.reverse();
+          document.getElementById("demo").style.boxShadow = `${bsAry.pop()}px ${bsAry.pop()}px ${bsAry.pop()}px ${bsAry.pop()}px rgb(${bsAry.pop()},${bsAry.pop()},${bsAry.pop()},${bsAry.pop() / 100})`;
+          document.getElementById("bsTxt").textContent = `box-shadow:${document.getElementById("demo").style.boxShadow}`;
+          break;
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+body {
+  font-family: "Arial";
+  color: #333333;
+}
+
+.form__fieldwrap {
+  margin-bottom: 40px;
+}
+
+.form__input {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #4a4a4a;
+  background-color: transparent;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.5em;
+  border-radius: 0;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: inherit;
+  outline: none;
+}
+
+.form__input:focus {
+  outline: 3px solid #000000;
+}
+
+/**********custom*********/
+body {
+  margin: 10px;
+}
+fieldset {
+  margin-top: 20px;
+  border-style: dotted;
+  padding: 20px;
+  font-size: 0;
+}
+fieldset * {
+  font-size: 1rem;
+}
+fieldset:nth-of-type(1) > div,
+fieldset:nth-of-type(2) > div {
+  display: inline-block;
+  width: calc(50% - 10px);
+}
+fieldset:nth-of-type(1) > div:nth-of-type(2n) {
+  margin-left: 20px;
+}
+
+input[type="radio"],
+fieldset.field_general,
+fieldset.field_support_request {
+  display: none;
+}
+
+#field_general:checked ~ fieldset.field_general,
+#field_support_request:checked ~ fieldset.field_support_request {
+  display: block;
+}
+
+.form__fieldwrap--radio > label {
+  background: gray;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  width: auto;
+}
+
+#field_general:checked ~ fieldset label.field_general,
+#field_support_request:checked ~ fieldset label.field_support_request {
+  background: black;
+}
+
+
+footer.info{
+  position: fixed;
+  bottom:0;
+  right:0;
+  max-width: 300px;
+  z-index: 99999;
+  background: lightskyblue;
+  opacity: 0.3;
+  padding:10px;
+  font-size: 1rem;
+}
+footer.info:hover{
+  opacity: 1;
+}

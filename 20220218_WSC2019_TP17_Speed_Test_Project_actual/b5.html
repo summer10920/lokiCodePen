@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
+      background: #eee;
+    }
+
+    #demo {
+
+      animation: ani 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes ani {
+      from {
+        width: 200px;
+        height: 200px;
+        background: yellow;
+      }
+
+      to {
+        width: 100px;
+        height: 100px;
+        background: red;
+        border-radius: 50%;
+      }
+    }
+
+    footer.info {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      max-width: 300px;
+      z-index: 99999;
+      background: lightskyblue;
+      opacity: 0.3;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    footer.info:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="demo"></div>
+  <footer class="info">
+    <h5>B5 Yellow Square (Easy)</h5>
+    <p>Make an animation that starts with a big yellow square, and this square turns a small red circle, the animation
+      needs to be centered on the view and the animation needs to loop;</p>
+  </footer>
+</body>
+
+</html>

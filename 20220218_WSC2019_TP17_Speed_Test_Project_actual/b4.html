@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
+      background: #eee;
+    }
+
+    input#demo[type="checkbox"] {
+      display: none;
+    }
+
+    input#demo[type="checkbox"]+label {
+      width: 100px;
+      height: 50px;
+      border-radius: 50%/100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    input#demo[type="checkbox"]+label::before,
+    input#demo[type="checkbox"]+label::after {
+      content: "";
+      transition: transform 0.5s 0.5s;
+      z-index: 900;
+    }
+
+    input#demo[type="checkbox"]+label>span {
+      transition: transform 0.5s;
+    }
+
+    input#demo[type="checkbox"]+label::before,
+    input#demo[type="checkbox"]+label::after,
+    input#demo[type="checkbox"]+label>span {
+      width: 25px;
+      height: 25px;
+      top: 25%;
+      border-radius: 50%;
+      position: absolute;
+      display: block;
+    }
+
+    input#demo[type="checkbox"]+label::before,
+    input#demo[type="checkbox"]+label>span:first-child {
+      background: cyan;
+      left: 10%;
+    }
+
+    input#demo[type="checkbox"]+label::after,
+    input#demo[type="checkbox"]+label>span:last-child {
+      background: darkblue;
+      right: 10%;
+    }
+
+    input#demo[type="checkbox"]:checked+label::before,
+    input#demo[type="checkbox"]+label::after {
+      transform: scale(0);
+    }
+
+    input#demo[type="checkbox"]+label::before,
+    input#demo[type="checkbox"]:checked+label::after {
+      transform: scale(1);
+    }
+
+    input#demo[type="checkbox"]+label>span:first-child,
+    input#demo[type="checkbox"]:checked+label>span:last-child {
+      transform: scale(1);
+      z-index: 100;
+    }
+
+    input#demo[type="checkbox"]:checked+label>span:first-child,
+    input#demo[type="checkbox"]+label>span:last-child {
+      transform: scale(7);
+      z-index: 200;
+    }
+
+    footer.info {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      max-width: 300px;
+      z-index: 99999;
+      background: lightskyblue;
+      opacity: 0.3;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    footer.info:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="checkbox" id="demo">
+  <label for="demo"><span></span><span></span></label>
+  <footer class="info">
+    <h5>B4 Toggle (Normal)</h5>
+    <p>To create an IOS Toggle switch using HTML and CSS only. View video for animation details.</p>
+  </footer>
+</body>
+
+</html>

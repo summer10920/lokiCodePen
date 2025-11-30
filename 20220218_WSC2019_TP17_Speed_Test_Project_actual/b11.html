@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
+      background: black;
+      text-align: center;
+    }
+
+    footer.info {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      max-width: 300px;
+      z-index: 99999;
+      background: lightskyblue;
+      opacity: 0.3;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    footer.info:hover {
+      opacity: 1;
+    }
+
+    #demo {
+      width: 700px;
+      height: 400px;
+      position: relative;
+    }
+
+    #demo::after,
+    #demo::before,
+    #demo .car {
+      content: "";
+      display: block;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+    }
+
+    #demo {
+      position: relative;
+      animation: pos 5s infinite step-end;
+    }
+
+    #demo::before {
+      left: 0;
+      border: 100px solid #222;
+    }
+
+    #demo::after {
+      right: 0;
+      border: 100px solid #222;
+    }
+
+
+    #demo .car {
+      z-index: 10;
+      animation: run 5s cubic-bezier(0.5, 0.1, 0.1, 0.5) infinite
+    }
+
+    .car::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 50px;
+      height: 100px;
+      background: rgb(106, 185, 216);
+      right: 25px;
+      top: 150px;
+    }
+
+    .skin {
+      width: 50px;
+      height: 50px;
+      background: skyblue;
+      position: absolute;
+      right: 25px;
+      top: 175px;
+      border-radius: 5%;
+      z-index: 99;
+    }
+
+    .skin::before,
+    .skin::after {
+      content: "";
+      background: linear-gradient(gold, transparent);
+      width: 40px;
+      height: 70px;
+      position: absolute;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      bottom: -95px;
+    }
+
+    .skin::before {
+      left: -10px;
+    }
+
+    .skin::after {
+      right: -10px;
+    }
+
+    @keyframes run {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(360deg);
+      }
+
+      100% {
+        transform: rotate(720deg);
+      }
+    }
+
+    @keyframes pos {
+      0% {
+        transform: scaleX(1);
+      }
+
+      50% {
+        transform: scaleX(-1);
+      }
+
+      100% {
+        transform: scaleX(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="demo">
+    <div class="car">
+      <div class="skin"></div>
+    </div>
+
+  </div>
+
+  <footer class="info">
+    <h5>B11: Race track (Normal)</h5>
+    <p>By using HTML and CSS, create a race track animation in the form of “8” (vertically or horizontally), along which
+      the car will endlessly animated.</p>
+  </footer>
+  <script>
+
+  </script>
+</body>
+
+</html>

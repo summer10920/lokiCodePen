@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
+      background: #eee;
+    }
+
+    #demo {
+      width: 200px;
+      height: 200px;
+      animation: ani 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes ani {
+      from {
+        background: blue;
+        clip-path: polygon(0% 87%, 50% 0%, 50% 0%, 100% 87%);
+      }
+
+      to {
+        background: yellow;
+        clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+
+
+    footer.info {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      max-width: 300px;
+      z-index: 99999;
+      background: lightskyblue;
+      opacity: 0.3;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    footer.info:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="demo"></div>
+  <footer class="info">
+    <h5>B6 Triangle (Easy)</h5>
+    <p>Make a blue equilater triangle on the center of the view, and animate this to transform a yellow square. the
+      animation needs to be fluid and loop infinite;</p>
+  </footer>
+</body>
+
+</html>

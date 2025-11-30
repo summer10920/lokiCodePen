@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
+      text-align: center;
+    }
+
+    footer.info {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      max-width: 300px;
+      z-index: 99999;
+      background: lightskyblue;
+      opacity: 0.3;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    footer.info:hover {
+      opacity: 1;
+    }
+
+    .demo>div {
+      width: 130px;
+      height: 200px;
+      background: lightcoral;
+      position: relative;
+    }
+
+    .demo {
+      font-size: 5rem;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      width: 673px;
+    }
+
+    button {
+      padding: 10px;
+      margin: 20px;
+      border-radius: 5%;
+      color: white;
+      border: none;
+      cursor: pointer;
+      outline: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo">
+    <svg id="digi0" x="0px" y="0px" width="130px" height="230px">
+      <polygon class="r0" points="26.5,5 17,14.5 17,14.5 26.5,24 102.5,24 112,14.5 102.5,5" />
+      <polygon class="r1" points="26.5,105 17,114.5 17,114.5 26.5,124 102.5,124 112,114.5 102.5,105" />
+      <polygon class="r2" points="26.5,205 17,214.5 17,214.5 26.5,224 102.5,224 112,214.5 102.5,205" />
+      <polygon class="c0" points="24,26.5 14.5,17 14.5,17 5,26.5 5,102.5 14.5,112 24,102.5" />
+      <polygon class="c1" points="124,26.5 114.5,17 114.5,17 105,26.5 105,102.5 114.5,112 124,102.5" />
+      <polygon class="c2" points="24,126.5 14.5,117 14.5,117 5,126.5 5,202.5 14.5,212 24,202.5" />
+      <polygon class="c3" points="124,126.5 114.5,117 114.5,117 105,126.5 105,202.5 114.5,212 124,202.5" />
+    </svg>
+    <svg id="digi1" x="0px" y="0px" width="130px" height="230px">
+      <polygon class="r0" points="26.5,5 17,14.5 17,14.5 26.5,24 102.5,24 112,14.5 102.5,5" />
+      <polygon class="r1" points="26.5,105 17,114.5 17,114.5 26.5,124 102.5,124 112,114.5 102.5,105" />
+      <polygon class="r2" points="26.5,205 17,214.5 17,214.5 26.5,224 102.5,224 112,214.5 102.5,205" />
+      <polygon class="c0" points="24,26.5 14.5,17 14.5,17 5,26.5 5,102.5 14.5,112 24,102.5" />
+      <polygon class="c1" points="124,26.5 114.5,17 114.5,17 105,26.5 105,102.5 114.5,112 124,102.5" />
+      <polygon class="c2" points="24,126.5 14.5,117 14.5,117 5,126.5 5,202.5 14.5,212 24,202.5" />
+      <polygon class="c3" points="124,126.5 114.5,117 114.5,117 105,126.5 105,202.5 114.5,212 124,202.5" />
+    </svg>
+    <svg id="digi2" x="0px" y="0px" width="130px" height="230px">
+      <polygon class="r0" points="26.5,5 17,14.5 17,14.5 26.5,24 102.5,24 112,14.5 102.5,5" />
+      <polygon class="r1" points="26.5,105 17,114.5 17,114.5 26.5,124 102.5,124 112,114.5 102.5,105" />
+      <polygon class="r2" points="26.5,205 17,214.5 17,214.5 26.5,224 102.5,224 112,214.5 102.5,205" />
+      <polygon class="c0" points="24,26.5 14.5,17 14.5,17 5,26.5 5,102.5 14.5,112 24,102.5" />
+      <polygon class="c1" points="124,26.5 114.5,17 114.5,17 105,26.5 105,102.5 114.5,112 124,102.5" />
+      <polygon class="c2" points="24,126.5 14.5,117 14.5,117 5,126.5 5,202.5 14.5,212 24,202.5" />
+      <polygon class="c3" points="124,126.5 114.5,117 114.5,117 105,126.5 105,202.5 114.5,212 124,202.5" />
+    </svg>
+    :
+    <svg id="digi3" x="0px" y="0px" width="130px" height="230px">
+      <polygon class="r0" points="26.5,5 17,14.5 17,14.5 26.5,24 102.5,24 112,14.5 102.5,5" />
+      <polygon class="r1" points="26.5,105 17,114.5 17,114.5 26.5,124 102.5,124 112,114.5 102.5,105" />
+      <polygon class="r2" points="26.5,205 17,214.5 17,214.5 26.5,224 102.5,224 112,214.5 102.5,205" />
+      <polygon class="c0" points="24,26.5 14.5,17 14.5,17 5,26.5 5,102.5 14.5,112 24,102.5" />
+      <polygon class="c1" points="124,26.5 114.5,17 114.5,17 105,26.5 105,102.5 114.5,112 124,102.5" />
+      <polygon class="c2" points="24,126.5 14.5,117 14.5,117 5,126.5 5,202.5 14.5,212 24,202.5" />
+      <polygon class="c3" points="124,126.5 114.5,117 114.5,117 105,126.5 105,202.5 114.5,212 124,202.5" />
+    </svg>
+    <svg id="digi4" x="0px" y="0px" width="130px" height="230px">
+      <polygon class="r0" points="26.5,5 17,14.5 17,14.5 26.5,24 102.5,24 112,14.5 102.5,5" />
+      <polygon class="r1" points="26.5,105 17,114.5 17,114.5 26.5,124 102.5,124 112,114.5 102.5,105" />
+      <polygon class="r2" points="26.5,205 17,214.5 17,214.5 26.5,224 102.5,224 112,214.5 102.5,205" />
+      <polygon class="c0" points="24,26.5 14.5,17 14.5,17 5,26.5 5,102.5 14.5,112 24,102.5" />
+      <polygon class="c1" points="124,26.5 114.5,17 114.5,17 105,26.5 105,102.5 114.5,112 124,102.5" />
+      <polygon class="c2" points="24,126.5 14.5,117 14.5,117 5,126.5 5,202.5 14.5,212 24,202.5" />
+      <polygon class="c3" points="124,126.5 114.5,117 114.5,117 105,126.5 105,202.5 114.5,212 124,202.5" />
+    </svg>
+    <button id="start" style="background: darkblue;">Start Timer</button>
+    <button id="stop" style="background: darkred;">Stop Timer</button>
+    <button id="reset" style="background: darkgoldenrod;">Reset Timer</button>
+  </div>
+  <footer class="info">
+    <h5>B15: Seven segment digital Timer (Difficult)</h5>
+    <p>Create a 7 segment digital timer, time format is: 3 digit of seconds passed, and centiseconds following it.
+      It’s
+      max value is: “999:59”. “Start timer“ button starts, “Stop timer” button stops, “Reset timer” button stops and
+      resets to 0 the timer.</p>
+  </footer>
+</body>
+
+</html>
+
+<script>
+  let times = 0, begin = null;
+  let numPos = [
+    [1, 0, 1, 1, 1, 1, 1], //r0~r2,c0~c3 by 0
+    [0, 0, 0, 0, 1, 0, 1],  //1
+    [1, 1, 1, 0, 1, 1, 0],  //2
+    [1, 1, 1, 0, 1, 0, 1],  //3
+    [0, 1, 0, 1, 1, 0, 1],  //4
+    [1, 1, 1, 1, 0, 0, 1],  //5
+    [1, 1, 1, 1, 0, 1, 1],  //6
+    [1, 0, 0, 0, 1, 0, 1],  //7
+    [1, 1, 1, 1, 1, 1, 1],  //8
+    [1, 1, 1, 1, 1, 0, 1]   //9
+  ];
+
+  let bstart = document.getElementById("start");
+  let bstop = document.getElementById("stop");
+  let breset = document.getElementById("reset");
+
+  bstart.addEventListener("click", jstart);
+  bstop.addEventListener("click", () => {
+    clearInterval(begin);
+    bstart.addEventListener("click", jstart);
+  });
+  breset.addEventListener("click", () => {
+    clearInterval(begin);
+    times = 0;
+    show(0);
+    bstart.addEventListener("click", jstart);
+  });
+
+  show(0);
+
+  function show(val) {
+    if (val <= 999590) {
+      val = ("000000" + val).substring(val.toString().length).split("");
+      val.pop();//minisecond sub last 0 (digi need 2 not 3)
+      for (const key in val) {
+        let target = numPos[val[key]].slice();
+        for (let i = 0; i < 7; i++) document.querySelectorAll(`#digi${key} polygon`)[i].style.opacity = (target.shift()) ? 1 : 0.05;
+      }
+    } else {
+      clearInterval(begin);
+      bstart.addEventListener("click", jstart);
+    }
+  }
+
+  function jstart() {
+    begin = setInterval(() => {
+      show(times);
+      times += 10;
+    }, 10);
+    bstart.removeEventListener("click", jstart);
+  }
+</script>

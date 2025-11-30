@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
+      background: #eee;
+    }
+
+    #demo {
+      width: 100px;
+      height: 100px;
+      /* background: red; */
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    #demo>div {
+      width: 30%;
+      height: 30%;
+      border-radius: 50%;
+      margin: 10%;
+      position: relative;
+      animation: 4s infinite;
+    }
+
+    #demo>div:nth-of-type(1) {
+      background: #19A68C;
+      animation-name: d1;
+
+    }
+
+    #demo>div:nth-of-type(2) {
+      background: #F63D3A;
+      animation-name: d2;
+    }
+
+    #demo>div:nth-of-type(3) {
+      background: #FDA543;
+      animation-name: d3;
+    }
+
+    #demo>div:nth-of-type(4) {
+      background: #193B48;
+      animation-name: d4;
+    }
+
+    @keyframes d1 {
+
+      0%,
+      100% {
+        left: 0%;
+        top: 0%;
+      }
+
+      25% {
+        left: 50%;
+        top: 0%;
+      }
+
+      50% {
+        left: 50%;
+        top: 50%;
+      }
+
+      75% {
+        left: 0%;
+        top: 50%;
+      }
+    }
+
+    @keyframes d2 {
+
+      0%,
+      100% {
+        left: 0%;
+        top: 0%;
+      }
+
+      25% {
+        left: 0%;
+        top: 50%;
+      }
+
+      50% {
+        left: -50%;
+        top: 50%;
+      }
+
+      75% {
+        left: -50%;
+        top: 0%;
+      }
+
+    }
+
+    @keyframes d3 {
+
+      0%,
+      100% {
+        left: 0%;
+        top: 0%;
+      }
+
+      25% {
+        left: 0%;
+        top: -50%;
+      }
+
+      50% {
+        left: 50%;
+        top: -50%;
+      }
+
+      75% {
+        left: 50%;
+        top: 0%;
+      }
+
+    }
+
+    @keyframes d4 {
+
+      0%,
+      100% {
+        left: 0%;
+        top: 0%;
+      }
+
+      25% {
+        left: -50%;
+        top: 0%;
+      }
+
+      50% {
+        left: -50%;
+        top: -50%;
+      }
+
+      75% {
+        left: 0%;
+        top: -50%;
+      }
+
+    }
+
+    footer.info {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      max-width: 300px;
+      z-index: 99999;
+      background: lightskyblue;
+      opacity: 0.3;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    footer.info:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="demo">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <footer class="info">
+    <h5>B3 Loading Screen (Normal)</h5>
+    <p>Create an animated loader using only HTML and CSS same as video.mp4. The loader animation should be looped. 4
+      different colors (#19A68C, #F63D3A, #FDA543, #193B48) should be used.
+      Screen shots:</p>
+  </footer>
+</body>
+
+</html>

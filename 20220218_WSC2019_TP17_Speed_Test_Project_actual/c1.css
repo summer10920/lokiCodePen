@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  background: #29303b;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.scene {
+}
+.cube {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  /* padding: 300px;*/
+  transform-style: preserve-3d;
+  transform: rotate3d(3, 5, 1, 45deg);
+}
+
+span {
+  width: 100px;
+  height: 100px;
+  border: 1px solid white;
+}
+
+.cube > div:not(.top),.roll {
+  display: flex;
+  flex-flow: row wrap;
+  width: 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.front > span {
+  background: #fa525288;
+}
+.back > span {
+  background: #f7670788;
+}
+.right > span {
+  background: #12b88688;
+}
+.left > span {
+  background: #4c6ef588;
+}
+.top span {
+  background: #fab00588;
+}
+.bottom span {
+  background: #7950f288;
+}
+
+.front {
+  animation: front 5s linear infinite;
+}
+.back {
+  animation: back 5s linear infinite;
+}
+.right {
+  animation: right 5s linear infinite;
+}
+.left {
+  animation: left 5s linear infinite;
+}
+.top{
+  transform:rotate3d(1, 0, 0, 90deg) translateY(-150px);
+}
+.bottom{
+  transform:rotate3d(1, 0, 0, 90deg) translate3d(0,-150px,-300px);
+}
+
+.roll {
+  animation: roll 5s linear infinite;
+}
+
+@keyframes front {
+  0% {
+    transform: rotate3d(0, 1, 0, 0deg) translate3d(0, 0, 150px);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg) translate3d(0, 0, 150px);
+  }
+}
+@keyframes back {
+  0% {
+    transform: rotate3d(0, 1, 0, 180deg) translate3d(0, 0, 150px);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 540deg) translate3d(0, 0, 150px);
+  }
+}
+@keyframes left {
+  0% {
+    transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, 150px);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 450deg) translate3d(0, 0, 150px);
+  }
+}
+@keyframes right {
+  0% {
+    transform: rotate3d(0, 1, 0, 270deg) translate3d(0, 0, 150px);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 630deg) translate3d(0, 0, 150px);
+  }
+}
+@keyframes roll{
+  0%{
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  100%{
+    transform: rotate3d(0, 0, 1, -360deg);
+  }
+}
